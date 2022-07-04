@@ -1,0 +1,33 @@
+body, p {
+	padding: 0px;
+	border: 0px;
+	margin: 0px
+}
+header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	background-color: blueviolet;
+}
+img {
+	height: 100px;
+	width: 120px;
+}
+
+.photo-card {
+	display: block;
+	height: auto;
+	width: 135px;
+}
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px;
+}
+.info-item {
+	font-size: 12px;
+}
+.hidden { 
+	display: none; 
+}
