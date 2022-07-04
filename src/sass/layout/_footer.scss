@@ -1,0 +1,122 @@
+.footer {
+  background-color: var(--secondary-bg-color);
+  &__container {
+    padding-bottom: 43px;
+    @include mq(tablet) {
+      padding-bottom: 91px;
+      display: flex;
+      justify-content: space-between;
+    }
+    @include mq(desktop) {
+      padding-bottom: 97px;
+    }
+  }
+}
+.footer__title {
+  font-family: 'Titan One', sans-serif;
+  @include font(18px, 1.16, 400);
+  text-transform: uppercase;
+  color: var(--pre-title-color);
+
+  @include mq(mobile-only) {
+    max-width: 234px;
+    margin-bottom: 43px;
+  }
+  @include mq(tablet) {
+    max-width: 340px;
+    @include font(26px, 1.15, null);
+    letter-spacing: 0.04em;
+  }
+  @include mq(desktop) {
+    @include font(30px, 1.13, null);
+  }
+  &--accent {
+    display: block;
+    margin-top: 17px;
+    @include font(34px, 1.15, 400);
+    letter-spacing: 0.04em;
+    color: var(--accent-color);
+    @include mq(tablet) {
+      @include font(48px, null, null);
+      letter-spacing: 0.06em;
+    }
+    @include mq(desktop) {
+      @include font(58px, 1.14, null);
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 46px;
+}
+
+.socials__item:not(:last-child) {
+  margin-right: 28px;
+}
+.socials__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--pre-title-color);
+  color: #ffffff;
+  transition: background-color var(--transition-duration) var(--timing-function);
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+  }
+
+  &-icon {
+    fill: currentColor;
+  }
+}
+
+.footer__tel {
+  @include font(12px, 1.86, 700);
+  text-align: right;
+
+  color: var(--black-text-color);
+  @include mq(tablet) {
+    @include font(14px, null, null);
+  }
+  @include mq(desktop) {
+    @include font(16px, null, null);
+  }
+  &-link {
+    color: var(--accent-color);
+    transition: color var(--transition-duration) var(--timing-function);
+    &:hover,
+    &:focus {
+      color: var(--btn-focus-color);
+    }
+  }
+}
+
+.footer__bottom {
+  padding-top: 22px;
+  padding-bottom: 25px;
+  border-top: 1px solid #e1e1e1;
+}
+.footer__copyright {
+  @include font(14px, 1.52, 700);
+  text-align: center;
+  @include mq(mobile-only) {
+    max-width: 145px;
+    margin: 0 auto;
+  }
+
+  color: var(--secondary-text-color);
+
+  @include mq(tablet) {
+    @include font(14px, 1.86, 700);
+    letter-spacing: 0.02em;
+  }
+  @include mq(desktop) {
+    padding-top: 9px;
+    padding-bottom: 10px;
+  }
+}

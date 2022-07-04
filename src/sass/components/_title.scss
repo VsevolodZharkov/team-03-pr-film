@@ -1,0 +1,34 @@
+.pre-title {
+  font-family: 'Titan One', sans-serif;
+  @include font(18px, 1.16, 400);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pre-title-color);
+
+  @include mq(tablet) {
+    @include font(26px, 1.15, 400);
+  }
+
+  @include mq(desktop) {
+    @include font(30px, 1.13, 400);
+  }
+}
+
+.title {
+  font-family: 'Titan One', sans-serif;
+  @include font(34px, 1.15, 400);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+
+  @include mq(tablet) {
+    @include font(48px, 1.14, 400);
+  }
+
+  @include mq(desktop) {
+    @include font(58px, 1.14, 400);
+    letter-spacing: 0.06em;
+  }
+}
