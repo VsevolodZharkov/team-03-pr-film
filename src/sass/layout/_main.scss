@@ -64,3 +64,10 @@
     }
   }
 }
+.pseudo-element::after {
+  content: "";
+  display: inline-block;
+  height: 15px;
+  width: 1px;
+  background-color:#ff6b08;
+}
