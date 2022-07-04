@@ -1,8 +1,41 @@
-// .footer {
-// 	display: block;
-// }
-// .footer_container {
-// 	height: 77px;
-// 	width: 100%;
-// 	background-color: aquamarine;
-// }
+.footer {
+	height: 77px;
+  width: 100%;
+	background-color: #b677bb;
+}
+.footer_container {
+  display: flex;
+	align-items: center;
+ 	justify-content: center;
+}
+.footer_text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #545454;
+
+  @include mq(tablet) {
+    line-height: 1.33;
+  }
+  @include mq(desktop) {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+}
+.footer_link {
+	font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #545454;
+	text-decoration: underline;
+  @include mq(tablet) {
+		font-size: 16px;
+    line-height: 1.33;
+  }
+  @include mq(desktop) {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+}
