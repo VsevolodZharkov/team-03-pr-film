@@ -1,0 +1,185 @@
+.hero {
+  background-image: url(../images/hero/vector_sm.png);
+  background-repeat: no-repeat;
+  background-position: 0 93%;
+  background-size: 100%;
+  padding-top: 22px;
+  padding-bottom: 87px;
+
+  @media screen and (min-width: 480px) {
+    background-image: url(../images/hero/vector_sm.png);
+    background-position: 0 -394px;
+  }
+
+  @media screen and (min-width: 480px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 480px) and (min-resolution: 192dpi),
+    screen and (min-width: 480px) and (min-resolution: 2dppx) {
+    background-image: url(../images/hero/vector@2x_sm.png);
+    background-position: 0 -394px;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/hero/vector_md.png);
+    background-position: 0 -130px;
+
+    padding-top: 53px;
+    padding-bottom: 64px;
+  }
+
+  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    background-image: url(../images/hero/vector@2x_md.png);
+    background-position: 0 -130px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    background-image: url(../images/hero/vector_lg.png);
+    background-position: -80px -22px;
+    background-size: contain;
+    // background-position: 2px 16px;
+    padding-top: 15px;
+    padding-bottom: 48px;
+  }
+
+  @media screen and (min-width: 1366px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 1366px) and (min-resolution: 192dpi),
+    screen and (min-width: 1366px) and (min-resolution: 2dppx) {
+    background-image: url(../images/hero/vector@2x_lg.png);
+    // background-position: -80px -22px;
+    background-position: 6px 20px;
+  }
+}
+
+.hero__container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.hero__block {
+  margin-bottom: 55px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 332px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 642px;
+  }
+}
+
+.hero__title {
+  margin-bottom: 8px;
+  font-weight: var(--extra-bold-weight);
+  font-size: var(--medium-size);
+  line-height: 1.3;
+  letter-spacing: var(--main-ls);
+
+  color: #111518;
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    font-size: 58px;
+  }
+}
+
+.hero__text {
+  font-weight: var(--medium-weight);
+  font-size: var(--main-size);
+  line-height: 1.65;
+  letter-spacing: var(--large-ls);
+  color: #b9b9b9;
+
+  @media screen and (min-width: 1366px) {
+    font-size: var(--medium-size);
+  }
+}
+
+.hero__item {
+  font-weight: var(--bold-weight);
+  font-size: var(--main-size);
+  line-height: 1.65;
+  letter-spacing: var(--large-ls);
+
+  color: #111518;
+
+  @media screen and (min-width: 1366px) {
+    font-size: var(--medium-size);
+  }
+}
+
+.hero__item-accent {
+  display: block;
+  color: var(--accent-color);
+
+  @media screen and (min-width: 1366px) {
+    display: inline-block;
+    color: #111518;
+  }
+}
+
+.hero__photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: tilt-in-fwd-tr 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  @include mq(tablet) {
+    width: 321px;
+    height: 320px;
+  }
+  @include mq(desktop) {
+    width: 719px;
+    height: 718px;
+  }
+}
+
+
+@keyframes tilt-in-fwd-tr {
+  0% {
+    transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+    opacity: 1;
+  }
+}
+
+// .hero__btn {
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-top: 52px;
+//   // outline: transparent;
+// border: 2px solid transparent;
+// transition-property: background-color, color, border;
+// transition-duration: var(--duration);
+// transition-timing-function: var(--cubic-bezier);
+
+// @include mq(tablet) {
+//   margin-right: auto;
+//   margin-left: 0;
+// }
+
+// @include mq(desktop) {
+//   margin-right: auto;
+//   margin-left: 0;
+// }
+
+// &:hover,
+// &:focus {
+//   background-color: var(--second-color);
+//   border: 2px solid var(--accent-color);
+//   color: var(--accent-color);
+// }
+// }
+
