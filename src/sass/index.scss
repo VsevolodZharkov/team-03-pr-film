@@ -4,12 +4,13 @@
 @import './utils/container';
 @import './utils/hidden';
 
+// Base
+@import './base/common';
+@import './base/reset';
 
-@import './common';
+// Components
+@import './components/modal';
 
-
-@import './modal';
-@import './paginaton';
-
-
+// Layout
+// @import './layout/';
 
