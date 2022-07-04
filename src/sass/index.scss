@@ -1,5 +1,10 @@
-@import './reset';
-@import './container';
+// Utils
+@import './utils/mixin';
+@import './utils/variables';
+@import './utils/container';
+@import './utils/hidden';
+
+
 @import './common';
 
 
