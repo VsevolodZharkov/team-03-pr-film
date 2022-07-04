@@ -1,119 +1,119 @@
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: transparent;
-  z-index: 1;
-  @include mq(mobile-only) {
-    padding-top: 6px;
-  }
+// .header {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   background-color: transparent;
+//   z-index: 1;
+//   @include mq(mobile-only) {
+//     padding-top: 6px;
+//   }
 
-  @include mq(tablet) {
-    padding-top: 40px;
-  }
-  @include mq(desktop) {
-  }
-}
+//   @include mq(tablet) {
+//     padding-top: 40px;
+//   }
+//   @include mq(desktop) {
+//   }
+// }
 
-.header__container {
-  display: flex;
-  @include mq(desktop) {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-}
+// .header__container {
+//   display: flex;
+//   @include mq(desktop) {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+//   }
+// }
 
-.header-logo {
-  position: absolute;
-  left: calc(100% / 2 - 150px);
+// .header-logo {
+//   position: absolute;
+//   left: calc(100% / 2 - 150px);
 
-  @include mq(mobile) {
-    left: calc(100% / 2 - 230px);
-  }
+//   @include mq(mobile) {
+//     left: calc(100% / 2 - 230px);
+//   }
 
-  @include mq(tablet) {
-    left: calc(100% / 2 - 360px);
-  }
+//   @include mq(tablet) {
+//     left: calc(100% / 2 - 360px);
+//   }
 
-  @include mq(desktop) {
-    left: calc(100% / 2 - 600px);
-    transition: transform 250ms var(--timing-function);
-  }
-  &:hover {
-    transform: scale(1.1);
-  }
-}
+//   @include mq(desktop) {
+//     left: calc(100% / 2 - 600px);
+//     transition: transform 250ms var(--timing-function);
+//   }
+//   &:hover {
+//     transform: scale(1.1);
+//   }
+// }
 
-.header-nav {
-  @include mq(mobile-only) {
-    display: none;
-  }
-  @include mq(tablet-only) {
-    display: none;
-  }
-  @include mq(desktop) {
-    margin-left: 230px;
-  }
-}
+// .header-nav {
+//   @include mq(mobile-only) {
+//     display: none;
+//   }
+//   @include mq(tablet-only) {
+//     display: none;
+//   }
+//   @include mq(desktop) {
+//     margin-left: 230px;
+//   }
+// }
 
-.header-list {
-  @include mq(desktop) {
-    display: flex;
-  }
-  &__item + &__item {
-    margin-left: 35px;
-  }
+// .header-list {
+//   @include mq(desktop) {
+//     display: flex;
+//   }
+//   &__item + &__item {
+//     margin-left: 35px;
+//   }
 
-  &__link {
-    @include font(16px, 1.31, 700);
-    color: var(--primary-white-color);
-    transition: color 500ms var(--timing-function);
-  }
-  &__link:hover,
-  &__link:focus {
-    color: var(--accent-color);
-  }
-}
+//   &__link {
+//     @include font(16px, 1.31, 700);
+//     color: var(--primary-white-color);
+//     transition: color 500ms var(--timing-function);
+//   }
+//   &__link:hover,
+//   &__link:focus {
+//     color: var(--accent-color);
+//   }
+// }
 
-.header-btn {
-  @include mq(mobile-only) {
-    display: none;
-  }
+// .header-btn {
+//   @include mq(mobile-only) {
+//     display: none;
+//   }
 
-  position: relative;
-  font-family: 'DM Sans', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 0.76;
-  text-align: center;
+//   position: relative;
+//   font-family: 'DM Sans', sans-serif;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 16px;
+//   line-height: 0.76;
+//   text-align: center;
 
-  width: 160px;
-  height: 44px;
+//   width: 160px;
+//   height: 44px;
 
-  color: var(--accent-color);
-  background-color: var(--primary-white-color);
+//   color: var(--accent-color);
+//   background-color: var(--primary-white-color);
 
-  border-radius: 22px;
-  border-color: transparent;
+//   border-radius: 22px;
+//   border-color: transparent;
 
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 500ms var(--timing-function);
+//   margin-left: auto;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   transition: background-color 500ms var(--timing-function);
 
-  &:hover {
-    background-color: var(--btn-bg-hover);
-  }
-}
+//   &:hover {
+//     background-color: var(--btn-bg-hover);
+//   }
+// }
 
-.vector-menu {
-  margin-left: 12px;
-  width: 8px;
-  height: 10px;
-}
+// .vector-menu {
+//   margin-left: 12px;
+//   width: 8px;
+//   height: 10px;
+// }
