@@ -1,0 +1,44 @@
+.conteiner {
+  // width: 1200px;
+  // padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  outline: 1px solid green;
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1140px) {
+    width: 1140px;
+  }
+}
+.visually {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+// .btn {
+//   background: #4985ff;
+//   box-shadow: 0px 0px 10px rgba(111, 111, 111, 0.25);
+//   border-radius: 30px;
+//   height: 45px;
+//   width: 200px;
+//   border: none;
+// }
+// .btn--link {
+//   text-decoration: none;
+//   color: var(--text-color-zag-two);
+//   font-weight: 500;
+//   font-size: 16px;
+//   line-height: 1.25;
+// }
