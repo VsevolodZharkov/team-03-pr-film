@@ -107,6 +107,8 @@
 .modal__btn-icon {
 	stroke: #000000;
 	fill: #000;
+	width: 30px;
+	height: 30px;
 }
 
 .modal__descript{
@@ -117,11 +119,4 @@
 	@include mq(desktop) {
 			width: 391px;
 	}
-}
-
-
-
-table {
-	margin: 0;
-	padding: 0;
 }
