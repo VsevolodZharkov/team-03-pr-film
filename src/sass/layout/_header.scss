@@ -5,9 +5,13 @@
       to right,
       getColor('background-overlay'),
       getColor('background-overlay')
-    ),
-    // url(./images/header_3/Group-86.jpg);
-    url(/src/header-img/Group-86.jpg);
+    ),    
+    url(../img/header-img/Group-86.jpg);
+
+    background-image: linear-gradient(to right,
+          getColor('background-overlay'),
+          getColor('background-overlay')),
+        url(/src/header-img/Group-86@2x.jpg);
 
   background-size: cover;
   background-position: center;
@@ -25,11 +29,33 @@
   @include mq(tablet) {
     padding-top: 40px;
     padding-bottom: 81px;
+
+      background-image: linear-gradient(to right,
+            getColor('background-overlay'),
+            getColor('background-overlay')),
+          url(/src/header-img/Group-760.jpg);
+
+          background-image: linear-gradient(to right,
+                getColor('background-overlay'),
+                getColor('background-overlay')),
+              url(/src/header-img/Group-760@2x.jpg);
+
+    
   }
 
   @include mq(desktop) {
     padding-top: 40px;
     padding-bottom: 80px;
+
+    background-image: linear-gradient(to right,
+          getColor('background-overlay'),
+          getColor('background-overlay')),
+        url(/src/header-img/abstract-background-with-red-lines-1280.png);
+
+        background-image: linear-gradient(to right,
+              getColor('background-overlay'),
+              getColor('background-overlay')),
+            url(/src/header-img/abstract-background-with-red-lines-1280@2x.png);
   }
 }
 
@@ -248,16 +274,17 @@
   &__link {
     display: block;
     color: #ffffff;
+    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-    letter-spacing: 0.02em;
+    // letter-spacing: 0.02em;
     text-decoration: none;
-    transition: color var(--transform);
+    // transition: color var(--transform);
 
-    @media screen and (min-width: 768px) {
-      font-size: 14px;
-    }
+    // @media screen and (min-width: 768px) {
+    //   font-size: 14px;
+    // }
 
     &--current {
       color: #ffffff;
