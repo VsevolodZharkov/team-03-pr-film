@@ -24,6 +24,7 @@
 .gallery__item{
     @include mq(desktop) {
     margin-bottom: 32px;
+		width: 394px;
   }    
 }
 
