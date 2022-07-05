@@ -1,70 +1,53 @@
+$gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+$transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 .header {
-  background-color: rgb(187, 130, 130);
-  background-color: getColor('background-footer');
-  background-image: linear-gradient(
-      to right,
-      getColor('background-overlay'),
-      getColor('background-overlay')
-    ),    
-    url(../img/header-img/Group-86.jpg);
 
-    background-image: linear-gradient(to right,
-          getColor('background-overlay'),
-          getColor('background-overlay')),
-        url(/src/header-img/Group-86@2x.jpg);
+  padding-top: 40px;
+    padding-bottom: 92px;
 
+  background-color: #2f303a;
+  margin-left: auto;
+    margin-right: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-// .page-header {
-//   height: 230px;
-//   @include mq(tablet) {
-//     height: 216px;
-//   }
-// }
-.header__container {
-  padding-top: 40px;
-  padding-bottom: 92px;
+
+ 
+  width: 100%;
+  // min-height: 230px;
+
+  background-image: $gradient, url('../header-img/Group-86.jpg');
+
+  @include mq(retina) {
+    background-image: $gradient, url('../header-img/Group-86@2x.jpg');
+  }
+
   @include mq(tablet) {
     padding-top: 40px;
     padding-bottom: 81px;
 
-      background-image: linear-gradient(to right,
-            getColor('background-overlay'),
-            getColor('background-overlay')),
-          url(/src/header-img/Group-760.jpg);
+    background-image: $gradient, url('../header-img/Group-760.jpg');
 
-          background-image: linear-gradient(to right,
-                getColor('background-overlay'),
-                getColor('background-overlay')),
-              url(/src/header-img/Group-760@2x.jpg);
-
-    
+    @include mq(retina) {
+      background-image: $gradient, url('../header-img/Group-760@2x.jpg');
+    }
   }
 
   @include mq(desktop) {
     padding-top: 40px;
     padding-bottom: 80px;
 
-    background-image: linear-gradient(to right,
-          getColor('background-overlay'),
-          getColor('background-overlay')),
-        url(/src/header-img/abstract-background-with-red-lines-1280.png);
+    background-image: $gradient,
+      url('../header-img/abstract-background-with-red-lines-1280.jpg');
 
-        background-image: linear-gradient(to right,
-              getColor('background-overlay'),
-              getColor('background-overlay')),
-            url(/src/header-img/abstract-background-with-red-lines-1280@2x.png);
+    @include mq(retina) {
+      background-image: $gradient,
+        url('../header-img/abstract-background-with-red-lines-1280@2x.jpg');
+    }
   }
 }
 
-// .site-nav__link {
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 12px;
 
-// }
 
 .site-nav__item {
   font-style: normal;
@@ -77,11 +60,6 @@
   display: flex;
   flex-direction: column;
 }
-
-// .auth-nav__icon {
-//   margin-right: 10px;
-//   fill: currentColor;
-// }
 
 .header-svg {
   margin: 0;
@@ -129,12 +107,6 @@
   }
 }
 
-// .page-header__input {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
 .page-header__form {
   position: relative;
   margin-bottom: 16px;
@@ -153,11 +125,11 @@
   display: inline-block;
   margin-bottom: 20px;
 
-  @include mq(tablet) {
-  }
+  // @include mq(tablet) {
+  // }
 
-  @include mq(desktop) {
-  }
+  // @include mq(desktop) {
+  // }
 }
 
 .page-header__form-input {
@@ -170,13 +142,13 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   // box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
   color: rgba(255, 255, 255, 0.6);
-  transition: transform var(--transform);
+  // transition: transform var(--transform);
   width: 280px;
 
   &::placeholder {
     font-size: 16px;
     line-height: 1.25;
-    color: var(--footer-font-color);
+    // color: var(--footer-font-color);
     letter-spacing: 0.03em;
   }
 
@@ -248,13 +220,11 @@
   font-family: inherit;
   color: #ffffff;
   background-color: transparent;
-  transition: color var(--transform), background-color var(--transform),
-    box-shadowr var(--transform);
+  
 
   &:hover,
   &:focus {
-    color: getColor('primary-color');
-    background-color: getColor('background-hover-btn');
+
     cursor: pointer;
     border: none;
     background: #ff6b01;
@@ -278,13 +248,9 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-    // letter-spacing: 0.02em;
+   
     text-decoration: none;
-    // transition: color var(--transform);
-
-    // @media screen and (min-width: 768px) {
-    //   font-size: 14px;
-    // }
+   
 
     &--current {
       color: #ffffff;
@@ -306,5 +272,6 @@
   &__link:hover,
   &__link:focus {
     color: #ff001b;
+    transition:  $transition;
   }
 }

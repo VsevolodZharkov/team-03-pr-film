@@ -1,3 +1,5 @@
+$gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+$transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 .header-library__container {
   padding: 40px 20px 62px;
 
@@ -24,56 +26,44 @@
 }
 
 .header-library {
-  background-color: rgb(0, 0, 0);
-  // background-color: getColor('background-footer');
-  background-image: linear-gradient(
-      to right,
-      getColor('background-overlay'),
-      getColor('background-overlay')
-    ),
-    url(/src/header-img/Rectangle-320.jpg);
+  background-color: #2f303a;
+  
+  background-image: $gradient,
+    url('../header-img/Rectangle-320.jpg');
 
-  background-image: linear-gradient(
-      to right,
-      getColor('background-overlay'),
-      getColor('background-overlay')
-    ),
-    url(/src/header-img/Rectangle-320@2x.jpg);
+    @include mq(retina) {
+background-image: $gradient,
+    url('../header-img/Rectangle-320@2x.jpg');
+    }
+
+  
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   @include mq(tablet) {
-    background-image: linear-gradient(
-        to right,
-        getColor('background-overlay'),
-        getColor('background-overlay')
-      ),
-      url(/src/header-img/Rectangle-768.jpg);
+    background-image: $gradient,
+      url('../header-img/Rectangle-768.jpg');
 
-    background-image: linear-gradient(
-        to right,
-        getColor('background-overlay'),
-        getColor('background-overlay')
-      ),
-      url(/src/header-img/Rectangle-768@2x.jpg);
+      @include mq(retina) {
+background-image: $gradient,
+    url('../header-img/Rectangle-768@2x.jpg');
+      }
+
+    
   }
 
   @include mq(desktop) {
-    background-image: linear-gradient(
-        to right,
-        getColor('background-overlay'),
-        getColor('background-overlay')
-      ),
-      url(/src/header-img/Rectangle-1280.jpg);
+    background-image: $gradient,
+      url('../header-img/Rectangle-1280.jpg');
 
-    background-image: linear-gradient(
-        to right,
-        getColor('background-overlay'),
-        getColor('background-overlay')
-      ),
-      url(/src/header-img/Rectangle-1280@2x.jpg);
+      @include mq(retina) {
+background-image: $gradient,
+    url('../header-img/Rectangle-1280@2x.jpg');
+      }
+
+   
   }
 }
 
@@ -92,17 +82,22 @@
   font-family: inherit;
   color: #ffffff;
   background-color: transparent;
-  transition: color var(--transform), background-color var(--transform),
-    box-shadowr var(--transform);
+transition: background-color $transition;
+
+  // transition: rgba(0.4, 0, 0.2, 1);
+  //   transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
 
   &:hover,
   &:focus {
-    color: getColor('primary-color');
-    background-color: getColor('background-hover-btn');
+   
     cursor: pointer;
     border: none;
     background: #ff6b01;
     border-radius: 5px;
+    transition: background-color $transition;
+    // transition: rgba(0.4, 0, 0.2, 1);
+    // transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -132,10 +127,10 @@
 
     font-size: 12px;
     line-height: 1.17;
-    // letter-spacing: 0.02em;
+
     text-decoration: none;
 
-    // transition: color var(--transform);
+  
 
     &--current {
       color: #ffffff;
@@ -158,6 +153,9 @@
   &__link:hover,
   &__link:focus {
     color: #ff001b;
+    transition:  $transition;
+    // transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
   }
 }
 
