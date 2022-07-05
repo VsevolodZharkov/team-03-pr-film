@@ -1,5 +1,9 @@
+/**
+ * render markup with films
+ * @param {array} films
+ */
 function createMarkUp(films) {
-  console.log(films);
+  // console.log(films);
   const gallery = document.querySelector('.gallery');
   const genresArr = JSON.parse(localStorage.getItem('genres'));
   const markup = films
@@ -30,6 +34,12 @@ function createMarkUp(films) {
   gallery.innerHTML = markup;
 }
 
+/**
+ * return  string with genres
+ * @param {Arr} arr  of genres_ids
+ * @param {obj} genres
+ * @returns  string
+ */
 function returnFilms(arr, genres) {
   // console.log('arr', arr);
   // console.log('genres', genres);
