@@ -1,0 +1,23 @@
+.pagination__list {
+  display: flex;
+  width: 374px;
+  margin: 60px auto;
+}
+
+.previos,
+.next {
+  width: 40px;
+  height: 40px;
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 5px;
+  font-size: 22px;
+}
+
+.previos:hover,
+.next:hover,
+.previos:focus,
+.next:focus {
+  background-color: #ff6b08;
+  color: #fff;
+}
