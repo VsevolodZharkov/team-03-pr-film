@@ -1,0 +1,237 @@
+.backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    // opacity: 0;
+    // visibility: hidden;
+    // pointer-events: none;
+    z-index: 100;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+
+.is-hidden.backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+}
+
+.modal__form-card {
+
+    @include mq(tablet) {
+        display: flex;
+    }
+}
+
+.modal__form {
+    position: absolute;
+    width: 280px;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    padding: 48px 20px 40px 20px;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+
+    overflow-y: scroll;
+
+    @include mq(tablet) {
+        width: 704px;
+        height: 552px;
+        padding: 40px 72px 40px 36px;
+    }
+
+    @include mq(desktop) {
+        width: 806px;
+        height: 558px;
+        padding: 40px 12px;
+      }
+}
+
+.modal__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    outline: rgba(0,0,0,0);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0);
+    background-color: #FFFFFF;
+   
+}
+
+.modal__form-img {
+    margin-bottom: 20px;
+    width: 240px;
+    height: 357px;
+
+    @include mq(tablet) {
+        margin-right: 68px;
+        margin-bottom: 0;
+        width: 264px;
+        height: 374px;
+    }
+
+    @include mq(desktop) {
+        margin-right: 16px;
+        width: 375px;
+        height: 478px;
+    }
+}
+
+.modal__descript{
+    @include mq(tablet) {
+        width: 265px;
+    }
+
+    @include mq(desktop) {
+        width: 391px;
+    }
+}
+
+.modal__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+    color: #000000;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+    @include mq(desktop) {
+        font-size: 30px;
+    }
+}
+
+table {
+    margin: 0;
+    padding: 0;
+}
+
+.modal__descript-table {
+    margin-bottom: 20px;
+}
+
+
+.modal__text-properties {
+    width: 108px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #8C8C8C;
+}
+
+.modal__text-params {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.modal__text-low {
+    text-transform: capitalize;
+}
+
+.modal__text-params-vote {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 16px;
+    background-color: #FF6B01;
+    border-radius: 5px;
+}
+
+.modal__text-params-votes {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 16px;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+}
+
+.modal__descript-titel {
+    margin-bottom: 8px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #000000;
+}
+
+.modal__descript-text {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.66;
+    color: #000000;
+
+    margin-bottom: 20px;
+}
+
+.modal__button__list {
+    display: flex;
+}
+
+.modal__button__item-watched {
+    margin-right: 20px;
+    border-radius: 5px;
+    border: 0px solid transparent;
+    padding: 6px 27px;
+    width: 111px;
+
+    background-color: #FF6B01;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #FFFFFF;
+    text-transform: uppercase;
+
+    @include mq(tablet) {
+        margin-right: 15px;
+        width: 125px;
+        padding: 14px 9px;
+    }
+
+    @include mq(desktop) {
+        margin-right: 15px;
+        width: 136px;
+    }
+}
+
+.modal__button__item-queue {
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 13px;
+    border: 1px solid #000000;
+    width: 111px;
+
+    background-color: #FFFFFF;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #000000;
+    text-transform: uppercase;
+
+    @include mq(tablet) {
+        width: 125px;
+        padding: 14px 7px;
+    }
+
+    @include mq(desktop) {
+        width: 136px;
+    }
+}
