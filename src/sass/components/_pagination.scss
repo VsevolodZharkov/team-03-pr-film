@@ -1,19 +1,31 @@
 .pagination__list {
   display: flex;
-  width: 374px;
-  margin: 60px auto;
+  justify-content: center;
+  width: 280px;
+  margin: 40px auto 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 374px;
+    margin: 60px auto 0 auto;
+  }
 }
 
 .previos,
 .next,
 .pagination__dottes,
 .pagination__btn {
-  min-width: 40px;
+  font-size: 16px;
+  max-width: 40px;
   height: 40px;
   background-color: #f7f7f7;
   border: none;
   border-radius: 5px;
-  font-size: 22px;
+
+  @media screen and (min-width: 768px) {
+    min-width: 40px;
+    max-width: 60px;
+    font-size: 22px;
+  }
 }
 
 .previos:hover,
