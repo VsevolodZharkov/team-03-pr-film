@@ -1,12 +1,27 @@
 .footer {
-	height: 80px;
-  width: 100%;
 	background-color: #b677bb;
 }
+
 .footer__container {
-  display: flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	align-items: center;
- 	justify-content: center;
+	height: 100px;
+	padding: 28px 36px 30px 48px;
+
+	@include mq(tablet) {
+		padding: 0px;
+    display: flex;
+		align-items: center;
+		height: 78px;
+  }
+  @include mq(desktop) {
+		padding: 0px;
+		display: flex;
+		align-items: center;
+		height: 77px;
+  }
 }
 .footer__text {
   font-style: normal;
@@ -14,7 +29,7 @@
   font-size: 14px;
   line-height: 1.1;
   color: #545454;
-
+	margin-right: 4px;
   @include mq(tablet) {
     line-height: 1.33;
   }
@@ -38,4 +53,10 @@
     font-size: 16px;
     line-height: 1.2;
   }
+}
+.footer__svg {
+	display: inline-block;
+	width: 14px;
+	height: 12px;
+	fill: #FF6B08;
 }
