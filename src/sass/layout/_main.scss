@@ -1,11 +1,14 @@
 .article__image {
   margin-bottom: 12px;
+	height: 398px;
   @include mq(tablet) {
     margin-bottom: 8px;
     width: 336px;
+		height: 455px;
   }
   @include mq(desktop) {
     width: 394px;
+		height: 574px;
   }
 }
 
