@@ -3,12 +3,12 @@
   width: 100%;
 	background-color: #b677bb;
 }
-.footer_container {
+.footer__container {
   display: flex;
 	align-items: center;
  	justify-content: center;
 }
-.footer_text {
+.footer__text {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -23,7 +23,7 @@
     line-height: 1.2;
   }
 }
-.footer_link {
+.footer__link {
 	font-style: normal;
   font-weight: 400;
   font-size: 14px;
