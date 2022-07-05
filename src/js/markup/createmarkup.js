@@ -8,10 +8,12 @@ function createMarkUp(films) {
   const genresArr = JSON.parse(localStorage.getItem('genres'));
   const markup = films
     .map(item => {
-      return `<li class="gallery__item">
+      return `<li class="gallery__item" data-id="${item.id}">
                 <article>
-                    <img class="article__image" src="https://image.tmdb.org/t/p/w500${
-                      item.poster_path
+                    <img class="article__image" src="${
+                      !item.poster_path
+                        ? 'https://img.freepik.com/free-vector/error-404-concept-for-landing-page_52683-20173.jpg?w=2000'
+                        : 'https://image.tmdb.org/t/p/w500' + item.poster_path
                     }" alt="${
         item.original_title ? item.original_title : item.title
       }" width="280" loading="lazy">
