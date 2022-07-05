@@ -1,8 +1,28 @@
-.header__container {
-  padding: 40px 20px 62px;
+.header {
+  background-color: rgb(187, 130, 130);
+  background-color: getColor('background-footer');
+  background-image: linear-gradient(
+      to right,
+      getColor('background-overlay'),
+      getColor('background-overlay')
+    ),
+    // url(./images/header_3/Group-86.jpg);
+    url(/src/header-img/Group-86.jpg);
 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.page-header {
+	height: 230px;
+	@include mq(tablet) {
+    height: 216px;
+  }
+}
+.header__container {
+  padding: 40px 20px 62px ;
   @include mq(tablet) {
-    padding: 40px 33px 81px;
+    padding: 40px 32px 81px;
   }
 
   @include mq(desktop) {
@@ -29,37 +49,18 @@
   flex-direction: column;
 }
 
-.auth-nav__icon {
-  margin-right: 10px;
-  fill: currentColor;
-}
+// .auth-nav__icon {
+//   margin-right: 10px;
+//   fill: currentColor;
+// }
 
 .header-svg {
   margin: 0;
-
+	width: 26px;
+	height: 26px;
   @include mq(tablet) {
     margin-right: 8px;
   }
-
-  @include mq(desktop) {
-    margin-right: 8px;
-  }
-}
-
-.header {
-  background-color: black;
-  background-color: getColor('background-footer');
-  background-image: linear-gradient(
-      to right,
-      getColor('background-overlay'),
-      getColor('background-overlay')
-    ),
-    // url(./images/header_3/Group-86.jpg);
-    url(/src/header-img/Group-86.jpg);
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .page-header__nav {
@@ -78,10 +79,8 @@
 
 .logo {
   display: flex;
-  flex-wrap: wrap;
+	align-items: center;
   margin-right: auto;
-
-  
 }
 
 .logo-header {

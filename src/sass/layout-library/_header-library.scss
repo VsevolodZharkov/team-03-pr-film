@@ -14,13 +14,13 @@
   color: #ffffff;
   display: none;
 
-@include mq(tablet) {
-        display: inline;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 1.17;
-    }
+  @include mq(tablet) {
+    display: inline;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+  }
 }
 
 .header-library {
@@ -73,14 +73,6 @@
   align-items: center;
   justify-content: center;
 
-//   @include mq(tablet) {
-//     width: 336px;
-//   }
-
-//   @include mq(desktop) {
-//     width: 394px;
-//   }
-
   &__btn {
     margin-right: 20px;
   }
@@ -90,7 +82,6 @@
   display: flex;
   align-items: center;
 
- 
   &__item:not(:last-child) {
     margin-right: 39px;
   }
@@ -136,23 +127,19 @@
   align-items: center;
   margin-bottom: 60px;
 
-
-@include mq(tablet) {
+  @include mq(tablet) {
     display: flex;
-        align-items: center;
-        margin-bottom: 40px;
-    }
-
-   
+    align-items: center;
+    margin-bottom: 40px;
+  }
 }
-
 
 .auth-nav__icon {
-    margin-right: 8px;
-  
+  margin-right: 8px;
+	display: inline-block;
+	width: 26px;
+	height: 26px;
 }
-
-
 
 .site-nav__item {
   font-style: normal;
@@ -166,5 +153,5 @@
 }
 
 .btn__content {
-    margin: 0;
+  margin: 0;
 }
