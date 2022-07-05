@@ -37,7 +37,7 @@
     padding: 48px 20px 40px 20px;
     transform: translate(-50%, -50%);
     background-color: #FFFFFF;
-
+    z-index: 20;
     overflow-y: scroll;
 
     @include mq(tablet) {
@@ -60,14 +60,21 @@
     position: absolute;
     top: 8px;
     right: 8px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     outline: rgba(0,0,0,0);
     border-radius: 50%;
     cursor: pointer;
     border: 1px solid rgba(0,0,0,0);
+    z-index: 30;
+
     background-color: #FFFFFF;
    
+}
+
+.modal__btn-icon {
+    stroke: #000000;
+    fill: #000;
 }
 
 .modal__form-img {
