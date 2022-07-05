@@ -1,20 +1,18 @@
 $gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
 $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 .header {
-
   padding-top: 40px;
-    padding-bottom: 92px;
+  padding-bottom: 92px;
 
   background-color: #2f303a;
   margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
- 
   width: 100%;
-  // min-height: 230px;
+  
 
   background-image: $gradient, url('../header-img/Group-86.jpg');
 
@@ -46,8 +44,6 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 }
-
-
 
 .site-nav__item {
   font-style: normal;
@@ -125,11 +121,7 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   margin-bottom: 20px;
 
-  // @include mq(tablet) {
-  // }
-
-  // @include mq(desktop) {
-  // }
+ 
 }
 
 .page-header__form-input {
@@ -220,11 +212,9 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: inherit;
   color: #ffffff;
   background-color: transparent;
-  
 
   &:hover,
   &:focus {
-
     cursor: pointer;
     border: none;
     background: #ff6b01;
@@ -248,9 +238,8 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-   
+
     text-decoration: none;
-   
 
     &--current {
       color: #ffffff;
@@ -272,6 +261,6 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
   &__link:hover,
   &__link:focus {
     color: #ff001b;
-    transition:  $transition;
+    transition: $transition;
   }
 }
