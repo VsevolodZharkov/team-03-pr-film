@@ -1,4 +1,4 @@
-import { returnFilms } from '../markup/createmarkup';
+import { getGeneres } from '../markup/createmarkup';
 
 const refs = {
   openGallery: document.querySelector('.gallery'),
@@ -71,10 +71,10 @@ function createModalMarkup(film, idFilm) {
             </tr>
             <tr>
               <td class="modal__text-properties">Genre</td>
-              <td class="modal__text-params modal__text-low">${returnFilms(
+              <td class="modal__text-params modal__text-low">${getGeneres(
                 filteredFilm[0].genre_ids,
                 genresArr
-              )}</td>
+              ).join(', ')}</td>
             </tr>
           </tbody>
         </table>
