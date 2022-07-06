@@ -1,2 +1,0 @@
-const e={openModalBtn:document.querySelector(".footer__link"),closeModalBtn:document.querySelector("[data-modal-close]"),modal:document.querySelector("[data-modal-footer]")};console.log(e.closeModalBtn),e.openModalBtn.addEventListener("click",(function(o){o.preventDefault(),e.modal.classList.add("is-hidden")})),e.closeModalBtn.addEventListener("click",(function(o){o.preventDefault(),e.modal.classList.remove("is-hidden")}));
-//# sourceMappingURL=index.a1cdada4.js.map
