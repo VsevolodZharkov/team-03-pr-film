@@ -32,7 +32,7 @@
 .modal__form {
     position: absolute;
     width: 280px;
-    height: 100vh;
+    min-height: 500px;
     top: 50%;
     left: 50%;
     padding: 48px 20px 40px 20px;
