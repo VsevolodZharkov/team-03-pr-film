@@ -5,7 +5,9 @@ const refs = {
   closeBtn: document.querySelector('[data-modal-close]'),
   backdrop: document.querySelector('[data-modal]'),
   modal: document.querySelector('.modal__form'),
-  article: document.querySelector(".modal__form-card"),
+  article: document.querySelector('.modal__form-card'),
+  btnWatched: document.querySelector('.modal__button__item-watched'),
+  btnQueue: document.querySelector('.modal__button__item-queue'),
 };
 
 let film;
@@ -34,6 +36,7 @@ function createModalMarkup(film, idFilm) {
     return element.id === Number(idFilm);
   });
   // console.log(filteredFilm[0]);
+
   const genresArr = JSON.parse(localStorage.getItem('genres'));
   const {
     title,
@@ -95,8 +98,10 @@ function createModalMarkup(film, idFilm) {
   refs.article.innerHTML = markUp;
 }
 
-export { showModal };
+// refs.btnWatched.addEventListener('click', getData);
+// refs.btnQueue.addEventListener('click', getMovieFromLocalStorage);
 
+export { showModal };
 
 const closeBtn = document.querySelector('.modal__btn');
 
@@ -105,23 +110,51 @@ closeBtn.addEventListener('click', onClickCloseBtn);
 function onClickCloseBtn(event) {
   event.preventDefault();
   refs.backdrop.classList.remove('is-open');
-	removeListener()
+  removeListener();
 }
 
 function onClickBackdrop(event) {
   if (event.target === refs.backdrop) {
     refs.backdrop.classList.remove('is-open');
-		removeListener()
+    removeListener();
   }
 }
 
 function onEscClick(event) {
   if (event.code === 'Escape') {
     refs.backdrop.classList.remove('is-open');
-		removeListener()
+    removeListener();
   }
 }
-function removeListener () {
-	document.removeEventListener('keydown', onEscClick);
-	document.removeEventListener('click', onClickBackdrop);
+function removeListener() {
+  document.removeEventListener('keydown', onEscClick);
+  document.removeEventListener('click', onClickBackdrop);
 }
+
+// локальне сховище
+// function getData(event) {
+//   console.log(event);
+//   setItemToLocalStorage(key, objFilm);
+// }
+
+// function setItemToLocalStorage(key, objFilm) {
+// console.log(key);
+// if (!localStorage.getItem(key)) {
+//   // якщо фільма немає у сховищі
+//   const array = [];
+//   array.push(objFilm);
+//   localStorage.setItem(key, JSON.stringify(array));
+// } else {
+//   //якщо фільм є у сховищі
+//   const storageValue = localStorage.getItem(key);
+//   const dataMovie = JSON.parse(storageValue);
+//   dataMovie.push(objFilm);
+// }
+// }
+
+// function getMovieFromLocalStorage(key) {
+//   //отримуємо фільм зі сховища
+//   const storageValue = localStorage.getItem(key);
+//   const dataMovie = JSON.parse(storageValue);
+//   return dataMovie;
+// }
