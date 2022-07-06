@@ -1,6 +1,7 @@
 import { createMarkUp } from '../markup/createmarkup';
 import { getTrendMovies } from '../apisreq/gettrends';
-import { spiner  } from "./spiner";
+import { showModal } from '../modal/modal';
+import { spiner } from './spiner';
 //-------------------------------------------------------------------//
 
 const refsPag = {
@@ -9,7 +10,7 @@ const refsPag = {
 
 let currentPage;
 
-function renderButtonsPag(page, totalPages) {
+function renderButtonsPag(page, totalPages, callback) {
   if (!page || !totalPages || totalPages === 1) {
     return;
   }
@@ -59,6 +60,7 @@ function renderButtonsPag(page, totalPages) {
   refsPag.pagContainer.innerHTML = markup;
 }
 
+///////////////////////////////////////////////////////////////// створити лісенера
 refsPag.pagContainer.addEventListener('click', onClickPagBtn);
 
 function onClickPagBtn(event) {
@@ -76,14 +78,15 @@ function onClickPagBtn(event) {
   } else {
     currentPage = Number(event.target.textContent);
   }
+  /// changes
 
   getTrendMovies(currentPage)
     .then(d => {
       createMarkUp(d.results);
       renderButtonsPag(currentPage, d.total_pages);
+      showModal(d);
     })
     .catch(e => console.log(e))
     .finally(() => {});
 }
-
 export { renderButtonsPag };
