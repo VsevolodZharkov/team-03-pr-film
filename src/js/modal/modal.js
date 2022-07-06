@@ -97,7 +97,6 @@ function createModalMarkup(film, idFilm) {
 
 export { showModal };
 
-//закриття модалки
 
 const closeBtn = document.querySelector('.modal__btn');
 
@@ -105,20 +104,24 @@ closeBtn.addEventListener('click', onClickCloseBtn);
 
 function onClickCloseBtn(event) {
   event.preventDefault();
-  // markUp.textContent = '';
   refs.backdrop.classList.remove('is-open');
+	removeListener()
 }
 
 function onClickBackdrop(event) {
   if (event.target === refs.backdrop) {
     refs.backdrop.classList.remove('is-open');
-    document.removeEventListener('click', onClickCard);
+		removeListener()
   }
 }
 
 function onEscClick(event) {
   if (event.code === 'Escape') {
     refs.backdrop.classList.remove('is-open');
-    document.removeEventListener('keydown', onClickCard);
+		removeListener()
   }
+}
+function removeListener () {
+	document.removeEventListener('keydown', onEscClick);
+	document.removeEventListener('click', onClickBackdrop);
 }
