@@ -11,10 +11,10 @@ const refs = {
 let film;
 let markUp = '';
 let idFilm;
+
 function showModal(data) {
   film = data.results;
   refs.openGallery.addEventListener('click', onClickCard);
-  // console.log(data);
 }
 
 function onClickCard(event) {
@@ -30,10 +30,8 @@ function onClickCard(event) {
 
 function createModalMarkup(film, idFilm) {
   const filteredFilm = film.filter(element => {
-    // console.log(element.id);
     return element.id === Number(idFilm);
   });
-  // console.log(filteredFilm[0]);
 
   const genresArr = JSON.parse(localStorage.getItem('genres'));
   const {
@@ -130,7 +128,6 @@ function removeListener() {
   document.removeEventListener('click', onClickBackdrop);
 }
 
-// локальне сховище
 function setToLocalStoregWatched(e) {
   console.log(e);
   const selectFilm = film.find(item => {
@@ -152,8 +149,7 @@ function setToLocalStoregQue(e) {
 
 function setItemToLocalStorage(key, objFilm) {
   if (!localStorage.getItem(key)) {
-    // якщо фільма немає у сховищі
-    const array = [];
+		const array = [];
     array.push(objFilm);
     localStorage.setItem(key, JSON.stringify(array));
   } else {
