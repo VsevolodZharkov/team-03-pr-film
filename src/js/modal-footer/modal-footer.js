@@ -4,7 +4,7 @@
 		closeModalBtn: document.querySelector('[data-modal-close]'),
 		modal: document.querySelector("[data-modal-footer]"),
 	};
-console.log(refs.closeModalBtn);
+
 	refs.openModalBtn.addEventListener("click", openModal);
 	refs.closeModalBtn.addEventListener("click", closeModal);
 

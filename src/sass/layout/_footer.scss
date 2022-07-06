@@ -1,6 +1,3 @@
-// .footer {
-// 	background-color: #b677bb;
-// }
 
 .footer__container {
 	display: flex;
@@ -119,4 +116,52 @@
 	@include mq(desktop) {
 			width: 391px;
 	}
+}
+.modal__form {
+	@include mq(tablet) {
+	width: 704px;
+	height: 350px;
+	padding: 44px 20px 20px 20px;
+}
+@include mq(desktop) {
+	width: 704px;
+	height: 350px;
+	padding: 44px 20px 20px 20px;
+}
+	
+}
+.modal__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.modal__social-item {
+	display: inline;
+}
+.modal__list-item  {
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: center;
+	height: 270px;
+	width: 120px;
+}
+.modal__img {
+	display: inline;
+	width: 120px;
+	height: 200px;
+	margin-bottom: 8px;
+}
+.modal__text-name {
+	font-size: 13px;
+	line-height: 1.2;
+	font-weight: 400;
+}
+.modal__social-icon {
+	width: 30px;
+	height: 30pxж
+}
+.modal__list-modal-social {
+	display: flex;
+	justify-content: center;
+	height: 32px;
 }
