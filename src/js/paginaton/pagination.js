@@ -1,5 +1,7 @@
 import { createMarkUp } from '../markup/createmarkup';
 import { getTrendMovies } from '../apisreq/gettrends';
+import { spiner  } from "./spiner";
+//-------------------------------------------------------------------//
 
 const refsPag = {
   pagContainer: document.querySelector('.js-pagination'),
@@ -68,17 +70,20 @@ function onClickPagBtn(event) {
   }
 
   if (event.target.classList.contains('previos')) {
-    currentPage -= 1;
+    currentPage = Number(currentPage) - 1;
   } else if (event.target.classList.contains('next')) {
-    currentPage += 1;
+    currentPage = Number(currentPage) + 1;
   } else {
-    currentPage = event.target.textContent;
+    currentPage = Number(event.target.textContent);
   }
 
-  getTrendMovies(currentPage).then(d => {
-    createMarkUp(d.results);
-    renderButtonsPag(currentPage, d.total_pages);
-  });
+  getTrendMovies(currentPage)
+    .then(d => {
+      createMarkUp(d.results);
+      renderButtonsPag(currentPage, d.total_pages);
+    })
+    .catch(e => console.log(e))
+    .finally(() => {});
 }
 
 export { renderButtonsPag };
