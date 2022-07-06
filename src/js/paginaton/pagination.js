@@ -83,10 +83,11 @@ function onClickPagBtn(event) {
   getTrendMovies(currentPage)
     .then(d => {
       createMarkUp(d.results);
+
       renderButtonsPag(currentPage, d.total_pages);
       showModal(d);
     })
     .catch(e => console.log(e))
     .finally(() => {});
 }
-export { renderButtonsPag };
+export { renderButtonsPag, onClickPagBtn };

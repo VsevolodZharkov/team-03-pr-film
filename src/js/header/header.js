@@ -1,6 +1,6 @@
 import { searchMovies } from '../apisreq/getserchquery.js';
 import { createMarkUp } from '../markup/createmarkup';
-import { renderButtonsPag } from '../paginaton/pagination';
+import { renderButtonsPag, onClickPagBtn } from '../paginaton/pagination';
 import { showModal } from '../modal/modal';
 import { spiner } from '../paginaton/spiner';
 
@@ -17,6 +17,7 @@ function SeachByQuery() {
 
 function onSubmit(evt) {
   evt.preventDefault();
+  pagContainer.removeEventListener('click', onClickPagBtn);
   query = evt.target.elements.text.value.trim();
 
   if (query === '') {
@@ -41,6 +42,7 @@ function onSubmit(evt) {
     }
     createMarkUp(searchData.results);
     renderButtonsPag(1, searchData.total_pages);
+
     pagContainer.addEventListener('click', handlerOnPag);
     showModal(searchData);
   });
