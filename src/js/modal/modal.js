@@ -6,13 +6,11 @@ const refs = {
   backdrop: document.querySelector('[data-modal]'),
   modal: document.querySelector('.modal__form'),
   article: document.querySelector('.modal__form-card'),
-  btnWatched: document.querySelector('.modal__button__item-watched'),
-  btnQueue: document.querySelector('.modal__button__item-queue'),
 };
 
 let film;
 let markUp = '';
-
+let idFilm;
 function showModal(data) {
   film = data.results;
   refs.openGallery.addEventListener('click', onClickCard);
@@ -23,7 +21,7 @@ function onClickCard(event) {
   if (event.target.nodeName === event.currentTarget.nodeName) {
     return;
   }
-  const idFilm = event.target.closest('li').dataset.id;
+  idFilm = event.target.closest('li').dataset.id;
   createModalMarkup(film, idFilm);
   refs.backdrop.classList.add('is-open');
   document.addEventListener('click', onClickBackdrop);
@@ -96,12 +94,14 @@ function createModalMarkup(film, idFilm) {
       </div>
   `;
   refs.article.innerHTML = markUp;
+	const btnWatched = document.querySelector('.modal__button__item-watched');
+	const btnQueue = document.querySelector('.modal__button__item-queue');
+	
+	btnWatched.addEventListener('click', getData);
+	// btnQueue.addEventListener('click', getMovieFromLocalStorage);
 }
 
-// refs.btnWatched.addEventListener('click', getData);
-// refs.btnQueue.addEventListener('click', getMovieFromLocalStorage);
 
-export { showModal };
 
 const closeBtn = document.querySelector('.modal__btn');
 
@@ -126,31 +126,43 @@ function onEscClick(event) {
     removeListener();
   }
 }
+
 function removeListener() {
   document.removeEventListener('keydown', onEscClick);
   document.removeEventListener('click', onClickBackdrop);
 }
 
 // локальне сховище
-// function getData(event) {
-//   console.log(event);
-//   setItemToLocalStorage(key, objFilm);
-// }
+function getData(e) {
+	console.log(e)
+	const selectFilm = film.find(item => {
+		return item.id === Number(idFilm);
+	})
+	setItemToLocalStorage('watched', selectFilm)
+}
 
-// function setItemToLocalStorage(key, objFilm) {
-// console.log(key);
-// if (!localStorage.getItem(key)) {
-//   // якщо фільма немає у сховищі
-//   const array = [];
-//   array.push(objFilm);
-//   localStorage.setItem(key, JSON.stringify(array));
-// } else {
-//   //якщо фільм є у сховищі
-//   const storageValue = localStorage.getItem(key);
-//   const dataMovie = JSON.parse(storageValue);
-//   dataMovie.push(objFilm);
-// }
-// }
+function setItemToLocalStorage(key, objFilm) {
+
+if (!localStorage.getItem(key)) {
+  // якщо фільма немає у сховищі
+  const array = [];
+  array.push(objFilm);
+  localStorage.setItem(key, JSON.stringify(array));
+	console.log(1);
+} else {
+  const storageValue = localStorage.getItem(key);
+  const dataMovie = JSON.parse(storageValue);
+	console.log(dataMovie);
+	const isInLocalStoreg = dataMovie.find(item => item.id === objFilm.id)
+	if (isInLocalStoreg.length === 0) {
+		dataMovie.push(objFilm);
+		localStorage.setItem(key, JSON.stringify(dataMovie));
+		console.log(3);
+	}
+	console.log(2);
+
+}
+}
 
 // function getMovieFromLocalStorage(key) {
 //   //отримуємо фільм зі сховища
@@ -158,3 +170,8 @@ function removeListener() {
 //   const dataMovie = JSON.parse(storageValue);
 //   return dataMovie;
 // }
+
+
+
+
+export { showModal };
