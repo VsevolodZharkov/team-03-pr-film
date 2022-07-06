@@ -1,3 +1,17 @@
+.main__container {
+	padding-top: 20px;
+	padding-bottom: 40px;
+	min-height: 1000px;
+	@include mq(tablet) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	@include mq(desktop) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}	
+}
+
 .article__image {
   margin-bottom: 12px;
 	height: 398px;
