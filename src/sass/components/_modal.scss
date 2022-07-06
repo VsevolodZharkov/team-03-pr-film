@@ -42,13 +42,12 @@
 
     @include mq(tablet) {
         width: 704px;
-        height: 552px;
+        min-height: 400px;
         padding: 40px 72px 40px 36px;
     }
-
     @include mq(desktop) {
         width: 806px;
-        height: 558px;
+        min-height: 558px;
         padding: 40px 12px;
       }
 }
