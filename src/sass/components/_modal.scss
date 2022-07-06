@@ -4,6 +4,7 @@
     height: 100vh;
     top: 0;
     left: 0;
+    overflow-y: scroll;
 
     opacity: 0;
     visibility: hidden;
@@ -15,7 +16,7 @@
     
 }
 
-.is-hidden.backdrop {
+.is-open.backdrop {
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
@@ -38,7 +39,6 @@
     transform: translate(-50%, -50%);
     background-color: #FFFFFF;
     z-index: 20;
-    overflow-y: scroll;
 
     @include mq(tablet) {
         width: 704px;
