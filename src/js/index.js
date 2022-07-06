@@ -1,12 +1,14 @@
 import { createMarkUp } from './markup/createmarkup';
-// import { searchMovies } from './apisreq/getserchquery';
 import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
 import { spiner } from './paginaton/spiner';
-import { x } from './header/header';
+import { SeachByQuery } from './header/header';
+import { getTrendMovies } from './apisreq/gettrends';
 
 //----------------------------------------------------------------//
+let searchData = null;
+// do ligic with seach film by name
 
 getGenresPopfilms()
   .then(data => {
@@ -20,5 +22,5 @@ getGenresPopfilms()
     spiner.stop();
   });
 
+SeachByQuery();
 // searchMovies('batman', 1).then(data => console.log(data));
-x();

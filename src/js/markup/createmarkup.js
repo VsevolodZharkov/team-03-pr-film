@@ -15,10 +15,10 @@ function createMarkUp(films) {
                         ? 'https://img.freepik.com/free-vector/error-404-concept-for-landing-page_52683-20173.jpg?w=2000'
                         : 'https://image.tmdb.org/t/p/w500' + item.poster_path
                     }" alt="${
-        item.original_title ? item.original_title : item.title
+        item.title ? item.title : item.original_title
       }" width="280" loading="lazy">
                     <h1 class="article__description">${
-                      item.original_title ? item.original_title : item.title
+                      item.title ? item.title : item.original_title
                     }</h1>
                     <p class="article__description-orange">
                         <span class="pseudo-element">
@@ -30,10 +30,18 @@ function createMarkUp(films) {
                                 : getGeneres(item.genre_ids, genresArr).join(
                                     ', '
                                   )
+                                ? getGeneres(item.genre_ids, genresArr).join(
+                                    ', '
+                                  )
+                                : 'NO DATA'
                             }
                         </span>
                         <span>
-                            ${item.release_date.slice(0, 4)}
+                            ${
+                              item.release_date
+                                ? item.release_date.slice(0, 4)
+                                : 'OUR ERA'
+                            }
                         </span>
                     </p>
                 </article>
@@ -51,9 +59,6 @@ function createMarkUp(films) {
  * @returns  array
  */
 function getGeneres(arr, genres) {
-  // console.log('arr', arr);
-  // console.log('genres', genres);
-
   return arr.map(item => {
     return genres.genres
       .filter(elem => {
