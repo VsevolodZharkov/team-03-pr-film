@@ -58,4 +58,4 @@ function returnFilms(arr, genres) {
     res.length >= 3 ? res.slice(0, 2).join(', ') + ', Others' : res.join(', ')
   }`;
 }
-export { createMarkUp };
+export { createMarkUp, returnFilms };
