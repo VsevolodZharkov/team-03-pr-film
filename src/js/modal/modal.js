@@ -94,14 +94,12 @@ function createModalMarkup(film, idFilm) {
       </div>
   `;
   refs.article.innerHTML = markUp;
-	const btnWatched = document.querySelector('.modal__button__item-watched');
-	const btnQueue = document.querySelector('.modal__button__item-queue');
-	
-	btnWatched.addEventListener('click', getData);
-	// btnQueue.addEventListener('click', getMovieFromLocalStorage);
+  const btnWatched = document.querySelector('.modal__button__item-watched');
+  const btnQueue = document.querySelector('.modal__button__item-queue');
+
+  btnWatched.addEventListener('click', setToLocalStoregWatched);
+  btnQueue.addEventListener('click', setToLocalStoregQue);
 }
-
-
 
 const closeBtn = document.querySelector('.modal__btn');
 
@@ -133,35 +131,42 @@ function removeListener() {
 }
 
 // локальне сховище
-function getData(e) {
-	console.log(e)
-	const selectFilm = film.find(item => {
-		return item.id === Number(idFilm);
-	})
-	setItemToLocalStorage('watched', selectFilm)
+function setToLocalStoregWatched(e) {
+  console.log(e);
+  const selectFilm = film.find(item => {
+    return item.id === Number(idFilm);
+  });
+  setItemToLocalStorage('watched', selectFilm);
+  e.target.textContent = 'Dоne!';
+  // e.target.setAttribute('disabled', 'disabled');
+}
+function setToLocalStoregQue(e) {
+  console.log(e);
+  const selectFilm = film.find(item => {
+    return item.id === Number(idFilm);
+  });
+  setItemToLocalStorage('queue', selectFilm);
+  e.target.textContent = 'Dоne!';
+  // e.target.setAttribute('disabled', 'disabled');
 }
 
 function setItemToLocalStorage(key, objFilm) {
+  if (!localStorage.getItem(key)) {
+    // якщо фільма немає у сховищі
+    const array = [];
+    array.push(objFilm);
+    localStorage.setItem(key, JSON.stringify(array));
+  } else {
+    const storageValue = localStorage.getItem(key);
+    const dataMovie = JSON.parse(storageValue);
 
-if (!localStorage.getItem(key)) {
-  // якщо фільма немає у сховищі
-  const array = [];
-  array.push(objFilm);
-  localStorage.setItem(key, JSON.stringify(array));
-	console.log(1);
-} else {
-  const storageValue = localStorage.getItem(key);
-  const dataMovie = JSON.parse(storageValue);
-	console.log(dataMovie);
-	const isInLocalStoreg = dataMovie.find(item => item.id === objFilm.id)
-	if (isInLocalStoreg.length === 0) {
-		dataMovie.push(objFilm);
-		localStorage.setItem(key, JSON.stringify(dataMovie));
-		console.log(3);
-	}
-	console.log(2);
-
-}
+    const isInLocalStoreg = dataMovie.find(item => item.id === objFilm.id);
+    console.log(isInLocalStoreg);
+    if (!isInLocalStoreg) {
+      dataMovie.push(objFilm);
+      localStorage.setItem(key, JSON.stringify(dataMovie));
+    }
+  }
 }
 
 // function getMovieFromLocalStorage(key) {
@@ -170,8 +175,5 @@ if (!localStorage.getItem(key)) {
 //   const dataMovie = JSON.parse(storageValue);
 //   return dataMovie;
 // }
-
-
-
 
 export { showModal };
