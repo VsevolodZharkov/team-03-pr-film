@@ -26,3 +26,22 @@
 @import './layout/header';
 @import './layout/main';
 @import './layout/footer';
+
+
+// .header {
+//     background-color: #2f303a;
+//     // background-color: getColor('background-footer');
+//     background-image: linear-gradient(to right,
+//             getColor('background-overlay'),
+//             getColor('background-overlay')),
+//         url('../header-img/Group-86.jpg');
+
+//     background-image: linear-gradient(to right,
+//             getColor('background-overlay'),
+//             getColor('background-overlay')),
+//         url(../header-img/Group-86@2x.jpg);
+
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+// }
