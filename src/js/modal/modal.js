@@ -122,3 +122,6 @@ function onEscClick(event) {
     document.removeEventListener('keydown', onClickCard);
   }
 }
+
+// по кліку на addToWatched
+// по кліку на addToQueue
