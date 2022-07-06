@@ -110,7 +110,6 @@ function onClickCloseBtn(event) {
 }
 
 function onClickBackdrop(event) {
-  console.log(event.target);
   if (event.target === refs.backdrop) {
     refs.backdrop.classList.remove('is-open');
     document.removeEventListener('click', onClickCard);
@@ -118,7 +117,6 @@ function onClickBackdrop(event) {
 }
 
 function onEscClick(event) {
-  console.log(event);
   if (event.code === 'Escape') {
     refs.backdrop.classList.remove('is-open');
     document.removeEventListener('keydown', onClickCard);
