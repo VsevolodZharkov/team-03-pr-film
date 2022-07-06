@@ -37,9 +37,6 @@ function onSubmit(evt) {
       setTimeout(() => {
         popup.textContent = '';
       }, 2000);
-      pagContainer.innerHTML = '';
-      gallery.innerHTML = '';
-
       return;
     }
     createMarkUp(searchData.results);
