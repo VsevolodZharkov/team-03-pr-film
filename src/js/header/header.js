@@ -44,7 +44,7 @@ function onSubmit(evt) {
     pagContainer.addEventListener('click', handlerOnPag);
     showModal(searchData);
   });
-  evt.target.reset();
+  // evt.target.reset();
 }
 
 function handlerOnPag(event) {
