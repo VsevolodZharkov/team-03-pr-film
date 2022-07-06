@@ -1,4 +1,4 @@
-import { getGeneres } from '../markup/createmarkup';
+import { getGeneres } from './createlistcards';
 
 const refs = {
   openGallery: document.querySelector('.gallery'),
@@ -12,8 +12,9 @@ let film;
 let markUp = '';
 let idFilm;
 
-function showModal(data) {
-  film = data.results;
+function showLabModal(data) {
+  console.log(data);
+  film = data;
   refs.openGallery.addEventListener('click', onClickCard);
 }
 
@@ -22,15 +23,16 @@ function onClickCard(event) {
     return;
   }
   idFilm = event.target.closest('li').dataset.id;
+  console.log(idFilm);
   createModalMarkup(film, idFilm);
   refs.backdrop.classList.add('is-open');
   document.addEventListener('click', onClickBackdrop);
   document.addEventListener('keydown', onEscClick);
 }
 
-function createModalMarkup(film, idFilm) {
-  const filteredFilm = film.filter(element => {
-    return element.id === Number(idFilm);
+function createModalMarkup(arr, id) {
+  const filteredFilm = arr.filter(el => {
+    return el.id === Number(id);
   });
 
   const genresArr = JSON.parse(localStorage.getItem('genres'));
@@ -85,9 +87,9 @@ function createModalMarkup(film, idFilm) {
         </p>
         <ul class="modal__button__list">
           <li>
-            <button class="modal__button__item-watched" type="button">add to Watched</button>
+            <button class="modal__button__item-watched" type="button">remove from Watched</button>
           </li>
-          <li><button class="modal__button__item-queue" type="button">add to queue</button></li>
+          <li><button class="modal__button__item-queue" type="button">remove from queue</button></li>
         </ul>
       </div>
   `;
@@ -95,8 +97,9 @@ function createModalMarkup(film, idFilm) {
   const btnWatched = document.querySelector('.modal__button__item-watched');
   const btnQueue = document.querySelector('.modal__button__item-queue');
 
-  btnWatched.addEventListener('click', setToLocalStoregWatched);
-  btnQueue.addEventListener('click', setToLocalStoregQue);
+  ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // btnWatched.addEventListener('click', setToLocalStoregWatched);
+  // btnQueue.addEventListener('click', setToLocalStoregQue);
 }
 
 const closeBtn = document.querySelector('.modal__btn');
@@ -128,41 +131,41 @@ function removeListener() {
   document.removeEventListener('click', onClickBackdrop);
 }
 
-function setToLocalStoregWatched(e) {
-  console.log(e);
-  const selectFilm = film.find(item => {
-    return item.id === Number(idFilm);
-  });
-  setItemToLocalStorage('watched', selectFilm);
-  e.target.textContent = 'Dоne!';
-  // e.target.setAttribute('disabled', 'disabled');
-}
-function setToLocalStoregQue(e) {
-  console.log(e);
-  const selectFilm = film.find(item => {
-    return item.id === Number(idFilm);
-  });
-  setItemToLocalStorage('queue', selectFilm);
-  e.target.textContent = 'Dоne!';
-  // e.target.setAttribute('disabled', 'disabled');
-}
+// function setToLocalStoregWatched(e) {
+//   console.log(e);
+//   const selectFilm = film.find(item => {
+//     return item.id === Number(idFilm);
+//   });
+//   setItemToLocalStorage('watched', selectFilm);
+//   e.target.textContent = 'Dоne!';
+//   // e.target.setAttribute('disabled', 'disabled');
+// }
+// function setToLocalStoregQue(e) {
+//   console.log(e);
+//   const selectFilm = film.find(item => {
+//     return item.id === Number(idFilm);
+//   });
+//   setItemToLocalStorage('queue', selectFilm);
+//   e.target.textContent = 'Dоne!';
+//   // e.target.setAttribute('disabled', 'disabled');
+// }
 
-function setItemToLocalStorage(key, objFilm) {
-  if (!localStorage.getItem(key)) {
-    const array = [];
-    array.push(objFilm);
-    localStorage.setItem(key, JSON.stringify(array));
-  } else {
-    const storageValue = localStorage.getItem(key);
-    const dataMovie = JSON.parse(storageValue);
+// function setItemToLocalStorage(key, objFilm) {
+//   if (!localStorage.getItem(key)) {
+//     const array = [];
+//     array.push(objFilm);
+//     localStorage.setItem(key, JSON.stringify(array));
+//   } else {
+//     const storageValue = localStorage.getItem(key);
+//     const dataMovie = JSON.parse(storageValue);
 
-    const isInLocalStoreg = dataMovie.find(item => item.id === objFilm.id);
-    console.log(isInLocalStoreg);
-    if (!isInLocalStoreg) {
-      dataMovie.push(objFilm);
-      localStorage.setItem(key, JSON.stringify(dataMovie));
-    }
-  }
-}
+//     const isInLocalStoreg = dataMovie.find(item => item.id === objFilm.id);
+//     console.log(isInLocalStoreg);
+//     if (!isInLocalStoreg) {
+//       dataMovie.push(objFilm);
+//       localStorage.setItem(key, JSON.stringify(dataMovie));
+//     }
+//   }
+// }
 
-export { showModal };
+export { showLabModal };

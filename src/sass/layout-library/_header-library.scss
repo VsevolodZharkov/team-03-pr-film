@@ -27,43 +27,31 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .header-library {
   background-color: #2f303a;
-  
-  background-image: $gradient,
-    url('../header-img/Rectangle-320.jpg');
 
-    @include mq(retina) {
-background-image: $gradient,
-    url('../header-img/Rectangle-320@2x.jpg');
-    }
+  background-image: $gradient, url('../header-img/Rectangle-320.jpg');
 
-  
+  @include mq(retina) {
+    background-image: $gradient, url('../header-img/Rectangle-320@2x.jpg');
+  }
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   @include mq(tablet) {
-    background-image: $gradient,
-      url('../header-img/Rectangle-768.jpg');
+    background-image: $gradient, url('../header-img/Rectangle-768.jpg');
 
-      @include mq(retina) {
-background-image: $gradient,
-    url('../header-img/Rectangle-768@2x.jpg');
-      }
-
-    
+    @include mq(retina) {
+      background-image: $gradient, url('../header-img/Rectangle-768@2x.jpg');
+    }
   }
 
   @include mq(desktop) {
-    background-image: $gradient,
-      url('../header-img/Rectangle-1280.jpg');
+    background-image: $gradient, url('../header-img/Rectangle-1280.jpg');
 
-      @include mq(retina) {
-background-image: $gradient,
-    url('../header-img/Rectangle-1280@2x.jpg');
-      }
-
-   
+    @include mq(retina) {
+      background-image: $gradient, url('../header-img/Rectangle-1280@2x.jpg');
+    }
   }
 }
 
@@ -82,15 +70,13 @@ background-image: $gradient,
   font-family: inherit;
   color: #ffffff;
   background-color: transparent;
-transition: background-color $transition;
+  transition: background-color $transition;
 
   // transition: rgba(0.4, 0, 0.2, 1);
   //   transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
- 
 
   &:hover,
   &:focus {
-   
     cursor: pointer;
     border: none;
     background: #ff6b01;
@@ -99,6 +85,10 @@ transition: background-color $transition;
     // transition: rgba(0.4, 0, 0.2, 1);
     // transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+}
+.filters-row__btn--active.is-active {
+  background: #ff6b01;
+  border: none;
 }
 
 .filters-row {
@@ -130,8 +120,6 @@ transition: background-color $transition;
 
     text-decoration: none;
 
-  
-
     &--current {
       color: #ffffff;
       text-decoration: none;
@@ -153,9 +141,8 @@ transition: background-color $transition;
   &__link:hover,
   &__link:focus {
     color: #ff001b;
-    transition:  $transition;
+    transition: $transition;
     // transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
   }
 }
 
