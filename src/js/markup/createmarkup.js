@@ -22,7 +22,15 @@ function createMarkUp(films) {
                     }</h1>
                     <p class="article__description-orange">
                         <span class="pseudo-element">
-                            ${returnFilms(item.genre_ids, genresArr)}
+                            ${
+                              getGeneres(item.genre_ids, genresArr).length >= 3
+                                ? getGeneres(item.genre_ids, genresArr)
+                                    .slice(0, 2)
+                                    .join(', ') + ', Others...'
+                                : getGeneres(item.genre_ids, genresArr).join(
+                                    ', '
+                                  )
+                            }
                         </span>
                         <span>
                             ${item.release_date.slice(0, 4)}
@@ -40,13 +48,13 @@ function createMarkUp(films) {
  * return  string with genres
  * @param {Arr} arr  of genres_ids
  * @param {obj} genres
- * @returns  string
+ * @returns  array
  */
-function returnFilms(arr, genres) {
+function getGeneres(arr, genres) {
   // console.log('arr', arr);
   // console.log('genres', genres);
 
-  const res = arr.map(item => {
+  return arr.map(item => {
     return genres.genres
       .filter(elem => {
         // console.log(elem.id === item);
@@ -54,8 +62,5 @@ function returnFilms(arr, genres) {
       })
       .flatMap(one => one.name);
   });
-  return `${
-    res.length >= 3 ? res.slice(0, 2).join(', ') + ', Others' : res.join(', ')
-  }`;
 }
-export { createMarkUp, returnFilms };
+export { createMarkUp, getGeneres };
