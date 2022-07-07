@@ -4,7 +4,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  overflow-y: scroll;
+  // overflow-y: hidden;
 
   opacity: 0;
   visibility: hidden;
@@ -28,11 +28,15 @@
   }
 }
 
+.ishidden {
+  overflow: hidden;
+}
+
 .modal__form {
   position: absolute;
   width: 280px;
   min-height: 500px;
-  top: 50%;
+  top: 100%;
   left: 50%;
   padding: 48px 20px 40px 20px;
   transform: translate(-50%, -50%);
@@ -41,6 +45,7 @@
 
   @include mq(tablet) {
     width: 704px;
+    top: 50%;
     min-height: 400px;
     padding: 40px 72px 40px 36px;
   }
@@ -150,8 +155,10 @@ table {
 .modal__text-params-vote {
   display: inline-block;
   text-align: center;
-  width: 36px;
+  min-width: 36px;
   height: 16px;
+  padding: 1px 9px 1px 10px;
+  color: #ffffff;
   background-color: #ff6b01;
   border-radius: 5px;
 }
@@ -159,15 +166,15 @@ table {
 .modal__text-params-votes {
   display: inline-block;
   text-align: center;
-  width: 36px;
+  min-width: 36px;
   height: 16px;
+  padding: 1px 4px;
   background-color: #f7f7f7;
   border-radius: 5px;
 }
 
 .modal__descript-titel {
   margin-bottom: 8px;
-
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;

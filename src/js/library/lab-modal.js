@@ -9,6 +9,7 @@ const refs = {
   backdrop: document.querySelector('[data-modal]'),
   modal: document.querySelector('.modal__form'),
   article: document.querySelector('.modal__form-card'),
+  body: document.querySelector('body'),
 };
 
 let film;
@@ -30,6 +31,7 @@ function onClickCard(event) {
   console.log(idFilm);
   createModalMarkup(film, idFilm);
   refs.backdrop.classList.add('is-open');
+  refs.body.classList.add('ishidden');
   document.addEventListener('click', onClickBackdrop);
   document.addEventListener('keydown', onEscClick);
 }
@@ -123,12 +125,14 @@ closeBtn.addEventListener('click', onClickCloseBtn);
 function onClickCloseBtn(event) {
   event.preventDefault();
   refs.backdrop.classList.remove('is-open');
+  refs.body.classList.remove('ishidden');
   removeListener();
 }
 
 function onClickBackdrop(event) {
   if (event.target === refs.backdrop) {
     refs.backdrop.classList.remove('is-open');
+    refs.body.classList.remove('ishidden');
     removeListener();
   }
 }
@@ -136,6 +140,7 @@ function onClickBackdrop(event) {
 function onEscClick(event) {
   if (event.code === 'Escape') {
     refs.backdrop.classList.remove('is-open');
+    refs.body.classList.remove('ishidden');
     removeListener();
   }
 }
