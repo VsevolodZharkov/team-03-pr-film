@@ -35,6 +35,7 @@ function onClickCard(event) {
 }
 
 function createModalMarkup(arr, id) {
+	console.log(arr);
   const filteredFilm = arr.filter(el => {
     return el.id === Number(id);
   });

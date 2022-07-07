@@ -85,9 +85,9 @@ function createModalMarkup(film, idFilm) {
         </p>
         <ul class="modal__button__list">
           <li>
-            <button class="modal__button__item-watched" type="button" data-action="">add to Watched</button>
+            <button class="modal__button__item-watched" type="button" data-action="add">add to Watched</button>
           </li>
-          <li><button class="modal__button__item-queue" type="button"  data-action="">add to queue</button></li>
+          <li><button class="modal__button__item-queue" type="button"  data-action="add">add to Queue</button></li>
         </ul>
       </div>
   `;
