@@ -4,7 +4,7 @@ import { createMarkUpListFilm } from './createlistcards';
 import { renderDefalt } from '../library';
 import { isInLocalstorage } from '../modal/isInLCyet';
 import { setItemToLocalStorage } from '../modal/modal';
-
+//----------------------------------------------------//
 const refs = {
   openGallery: document.querySelector('.gallery'),
   closeBtn: document.querySelector('[data-modal-close]'),
@@ -19,10 +19,8 @@ const KEY_WATCHED = 'watched';
 let film;
 let markUp = '';
 let idFilm;
-let keyOfLocalStrg;
 
 function showLabModal(key) {
-  keyOfLocalStrg = key;
   film = getMovieFromLocalStorage(key);
   refs.openGallery.addEventListener('click', onClickCard);
 }
@@ -126,6 +124,7 @@ ${isInLocalstorage(KEY_QUEUE, id) ? 'remove from QUEUE' : 'add to QUEUE'}
   btnWatched.addEventListener('click', actionWatch);
   btnQueue.addEventListener('click', actionQueue);
 }
+
 function actionWatch(e) {
   console.log(e.target);
   if (e.target.dataset.action === 'add') {
@@ -136,9 +135,9 @@ function actionWatch(e) {
 
     console.log(selectFilm);
     setItemToLocalStorage(KEY_WATCHED, selectFilm);
+
     e.target.textContent = 'Remove from watched';
     e.target.dataset.action = 'remove';
-    // createMarkUpListFilm(1, film);
   } else {
     console.log('delete');
     const films = getMovieFromLocalStorage(KEY_WATCHED);
@@ -147,7 +146,6 @@ function actionWatch(e) {
     localStorage.setItem(KEY_WATCHED, JSON.stringify(films));
     e.target.textContent = 'Add to watched';
     e.target.dataset.action = 'add';
-    // createMarkUpListFilm(1, films);
   }
 }
 function actionQueue(e) {
@@ -158,9 +156,9 @@ function actionQueue(e) {
       return item.id === Number(idFilm);
     });
     setItemToLocalStorage(KEY_QUEUE, selectFilm);
+
     e.target.textContent = 'Remove from queue';
     e.target.dataset.action = 'remove';
-    // createMarkUpListFilm(1, film);
   } else {
     console.log('delete');
     const films = getMovieFromLocalStorage(KEY_QUEUE);
@@ -169,7 +167,6 @@ function actionQueue(e) {
     localStorage.setItem(KEY_QUEUE, JSON.stringify(films));
     e.target.textContent = 'Add to queue';
     e.target.dataset.action = 'add';
-    // createMarkUpListFilm(1, films);
   }
 }
 
@@ -177,77 +174,40 @@ const closeBtn = document.querySelector('.modal__btn');
 
 closeBtn.addEventListener('click', onClickCloseBtn);
 
-function onClickCloseBtn(event) {
-  event.preventDefault();
-  refs.backdrop.classList.remove('is-open');
-  refs.body.classList.remove('ishidden');
-  removeListener();
+function onClickCloseBtn() {
+  onCloseModal();
 }
 
 function onClickBackdrop(event) {
   if (event.target === refs.backdrop) {
-    refs.backdrop.classList.remove('is-open');
-    refs.body.classList.remove('ishidden');
-    removeListener();
+    onCloseModal();
   }
 }
 
 function onEscClick(event) {
   if (event.code === 'Escape') {
-    refs.backdrop.classList.remove('is-open');
-    refs.body.classList.remove('ishidden');
-    removeListener();
+    onCloseModal();
   }
+}
+
+function onCloseModal() {
+  refs.backdrop.classList.remove('is-open');
+  refs.body.classList.remove('ishidden');
+  removeListener();
+  const dataInfo = document.querySelector(
+    '.filters-row__btn--active.is-active'
+  );
+  const films = JSON.parse(localStorage.getItem(dataInfo.dataset.info));
+  renderDefalt();
+  if (!films || films.length === 0) {
+    return;
+  }
+  createMarkUpListFilm(1, films);
 }
 
 function removeListener() {
   document.removeEventListener('keydown', onEscClick);
   document.removeEventListener('click', onClickBackdrop);
 }
-
-// function deleteFromLS(e) {
-//   const films = getMovieFromLocalStorage(keyOfLocalStrg);
-//   const index = films.findIndex(item => item.id === Number(idFilm));
-
-//   films.splice(index, 1);
-
-//   localStorage.setItem(keyOfLocalStrg, JSON.stringify(films));
-//   createMarkUpListFilm(1, films);
-//   refs.backdrop.classList.remove('is-open');
-//   if (films.length === 0) {
-//     renderDefalt();
-//   }
-// }
-
-// function addToLS(e) {
-//   if (keyOfLocalStrg === 'queue') {
-//     const filmsWatched = getMovieFromLocalStorage('watched');
-//     const isSelectMovie = filmsWatched.find(item => item.id === Number(idFilm));
-//     //если такой фильм есть
-//     if (isSelectMovie) {
-//       return;
-//     }
-//     //добавляем
-//     const filmsQueue = getMovieFromLocalStorage('queue');
-//     const selectFilm = filmsQueue.find(item => item.id === Number(idFilm));
-//     filmsWatched.push(selectFilm);
-//     localStorage.setItem('watched', JSON.stringify(filmsWatched));
-
-//     // e.target.textContent = 'added';
-//   } else if (keyOfLocalStrg === 'watched') {
-//     const filmsQueue = getMovieFromLocalStorage('queue');
-//     const isSelectMovie = filmsQueue.find(item => item.id === Number(idFilm));
-//     //если такой фильм есть
-//     if (isSelectMovie) {
-//       return;
-//     }
-//     //добавляем
-//     const filmsWatched = getMovieFromLocalStorage('watched');
-//     const selectFilm = filmsWatched.find(item => item.id === Number(idFilm));
-//     filmsQueue.push(selectFilm);
-//     localStorage.setItem('queue', JSON.stringify(filmsQueue));
-//     // e.target.textContent = 'added';
-//   }
-// }
 
 export { showLabModal };
