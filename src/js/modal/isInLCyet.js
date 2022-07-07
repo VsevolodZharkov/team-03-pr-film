@@ -9,7 +9,7 @@ function isInLocalstorage(key, id) {
   if (!data) {
     return false;
   }
-  return data.find(el => el.id === Number(id));
+  return !!data.find(el => el.id === Number(id));
 }
 
 export { isInLocalstorage };

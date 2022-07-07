@@ -10,6 +10,8 @@ const refs = {
   article: document.querySelector('.modal__form-card'),
   body: document.querySelector('body'),
 };
+const KEY_QUEUE = 'queue';
+const KEY_WATCHED = 'watched';
 
 let film;
 let markUp = '';
@@ -48,12 +50,6 @@ function createModalMarkup(film, idFilm) {
     original_title,
   } = filteredFilm[0];
 
-  const KEY_QUEUE = 'queue';
-  const KEY_WATCHED = 'watched';
-  if (isInLocalstorage(KEY_WATCHED, idFilm)) {
-  }
-  if (isInLocalstorage(KEY_QUEUE, idFilm)) {
-  }
   markUp = `
       <img
         class="modal__form-img"
@@ -202,7 +198,7 @@ function setItemToLocalStorage(key, objFilm) {
     const dataMovie = JSON.parse(storageValue);
 
     const isInLocalStoreg = dataMovie.find(item => item.id === objFilm.id);
-    console.log(isInLocalStoreg);
+
     if (!isInLocalStoreg) {
       dataMovie.push(objFilm);
       localStorage.setItem(key, JSON.stringify(dataMovie));
@@ -210,4 +206,4 @@ function setItemToLocalStorage(key, objFilm) {
   }
 }
 
-export { showModal };
+export { showModal, setItemToLocalStorage };
