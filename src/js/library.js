@@ -23,7 +23,7 @@ refs.btnQueue.addEventListener('click', openQueue);
 
 // фильми из локалстораге
 const films = getMovieFromLocalStorage('queue');
-if (films.length === 0) {
+if (!films || films.length === 0) {
   renderDefalt();
 } else {
   renderCards(films);
