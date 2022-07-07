@@ -10,6 +10,9 @@ function openWatched () {
 	watched.classList.add('is-active');
 	queue.classList.remove('is-active');
 	const films = getMovieFromLocalStorage('watched');
+	if (!films) {
+		return
+	}
 	let perPage = 20;
 	let totalPages = Math.ceil(films.length / perPage);
 
