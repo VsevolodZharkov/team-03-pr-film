@@ -164,7 +164,7 @@ function setToLocalStoregWatched(e) {
   } else {
     const films = getMovieFromLocalStorage('watched');
 
-    const index = films.findIdex(item => item.id === Number(idFilm));
+    const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);
     const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);
@@ -184,7 +184,7 @@ function setToLocalStoregQue(e) {
     e.target.dataset.action = 'remove';
   } else {
     const films = getMovieFromLocalStorage('queue');
-    const index = films.findIdex(item => item.id === Number(idFilm));
+    const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);
     const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);

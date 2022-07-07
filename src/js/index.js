@@ -8,6 +8,8 @@ import { getTrendMovies } from './apisreq/gettrends';
 
 //----------------------------------------------------------------//
 /// hekekke
+/// hekekke1qqqq
+
 let searchData = null;
 let currentPage = 1;
 if (localStorage.getItem('currentPage')) {
