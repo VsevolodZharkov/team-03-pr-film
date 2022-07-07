@@ -10,7 +10,6 @@ import { getTrendMovies } from './apisreq/gettrends';
 /// hekekke
 let searchData = null;
 // do ligic with seach film by name
-
 getGenresPopfilms()
   .then(data => {
     createMarkUp(data.results);
