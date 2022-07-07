@@ -15,14 +15,13 @@ let currentPage = 1;
 if (localStorage.getItem('currentPage')) {
   currentPage = localStorage.getItem('currentPage');
 }
+
 // do ligic with seach film by name
 
 getGenresPopfilms()
   .then(data => {
     createMarkUp(data.results);
-
     renderButtonsPag(currentPage, data.total_pages);
-
     showModal(data);
   })
   .catch(er => console.log(er))
