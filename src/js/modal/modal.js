@@ -173,3 +173,4 @@ function setItemToLocalStorage(key, objFilm) {
 // }
 
 export { showModal };
+
