@@ -184,8 +184,6 @@ function setToLocalStoregQue(e) {
     const films = getMovieFromLocalStorage('queue');
     const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);
-    const index = films.findIndex(item => item.id === Number(idFilm));
-    films.splice(index, 1);
     localStorage.setItem('queue', JSON.stringify(films));
     e.target.textContent = 'Add to queue';
     e.target.dataset.action = 'add';
