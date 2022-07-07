@@ -13,12 +13,12 @@ function openQueue () {
 	let totalPages = Math.ceil(films.length / perPage);
 
 //рендер карточек
-createMarkUpListFilm(1, films);
+	createMarkUpListFilm(1, films);
 
 //рендер пагинации
-renderBtnPag(1, totalPages);
-handlerPagination(totalPages);
-showLabModal(films);
+	renderBtnPag(1, totalPages);
+	handlerPagination(totalPages, 'queue');
+	showLabModal(films);
 }
 
 

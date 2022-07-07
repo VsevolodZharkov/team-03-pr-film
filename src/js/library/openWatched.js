@@ -18,7 +18,7 @@ function openWatched () {
 
 //рендер пагинации
 	renderBtnPag(1, totalPages);
-	handlerPagination(totalPages);
+	handlerPagination(totalPages, 'watched');
 	showLabModal(films);
 }
 

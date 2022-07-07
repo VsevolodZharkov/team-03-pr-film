@@ -20,15 +20,17 @@ refs.btnQueue.classList.add('is-active');
 refs.btnWatched.addEventListener('click', openWatched)
 refs.btnQueue.addEventListener('click', openQueue)
 
-//фильми из локалстораге
+// фильми из локалстораге
 const films = getMovieFromLocalStorage('queue');
 	let perPage = 20;
 	let totalPages = Math.ceil(films.length / perPage);
-//рендер карточек
+// рендер карточек
 createMarkUpListFilm(1, films);
 
-//рендер пагинации
+// рендер пагинации
 renderBtnPag(1, totalPages);
-handlerPagination(totalPages);
+handlerPagination(totalPages, 'queue');
 showLabModal(films);
+
+
 
