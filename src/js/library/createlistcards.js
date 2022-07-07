@@ -83,4 +83,3 @@ function getGeneres(arr, genres) {
   });
 }
 export { createMarkUpListFilm, getGeneres };
-export { getVotes };

@@ -3,24 +3,24 @@ import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
 import { spiner } from './paginaton/spiner';
-import { SeachByQuery } from './header/header';
+import { seachByQuery } from './header/header';
 import { getTrendMovies } from './apisreq/gettrends';
-import { getVotes } from './library/createlistcards';
 
 //----------------------------------------------------------------//
 /// hekekke
 let searchData = null;
-
+let currentPage = 1;
+if (localStorage.getItem('currentPage')) {
+  currentPage = localStorage.getItem('currentPage');
+}
 // do ligic with seach film by name
 
 getGenresPopfilms()
   .then(data => {
     createMarkUp(data.results);
-    // if (localStorage.getItem('currentPage')) {
 
-    // }
-    renderButtonsPag(1, data.total_pages);
-    // localStorage.setItem('currentPage', page)
+    renderButtonsPag(currentPage, data.total_pages);
+
     showModal(data);
   })
   .catch(er => console.log(er))
@@ -28,5 +28,4 @@ getGenresPopfilms()
     spiner.stop();
   });
 
-SeachByQuery();
-// searchMovies('batman', 1).then(data => console.log(data));
+seachByQuery();

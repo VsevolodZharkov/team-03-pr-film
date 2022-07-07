@@ -11,7 +11,7 @@ const gallery = document.querySelector('.gallery');
 const popup = document.querySelector('.search');
 let query;
 let currentPage;
-function SeachByQuery() {
+function seachByQuery() {
   formSearch.addEventListener('submit', onSubmit);
 }
 
@@ -76,4 +76,4 @@ function handlerOnPag(event) {
     .finally(() => {});
 }
 
-export { SeachByQuery };
+export { seachByQuery };
