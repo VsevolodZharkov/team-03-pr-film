@@ -10,7 +10,7 @@ const formSearch = document.querySelector('.page-header__form');
 const gallery = document.querySelector('.gallery');
 const popup = document.querySelector('.search');
 let query;
-
+let currentPage;
 function SeachByQuery() {
   formSearch.addEventListener('submit', onSubmit);
 }
