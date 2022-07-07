@@ -64,6 +64,7 @@
   height: 100vh;
   top: 0;
   left: 0;
+	overflow-y: auto;
 
   opacity: 0;
   visibility: hidden;
@@ -80,7 +81,10 @@
   visibility: visible;
   pointer-events: initial;
 }
-
+.ishidden {
+  overflow: hidden;
+	height: 100vh;
+}
 .modal__btn-footer {
   display: flex;
   align-items: center;
@@ -117,7 +121,7 @@
 }
 .modal__form-footer {
   width: 280px;
-  height: 1274px;
+  height: 880px;
   z-index: 20;
   background-color: #fff;
   padding: 44px 15px 15px;
@@ -136,9 +140,15 @@
   }
 }
 .modal__list {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+	align-items: baseline;
+	@include mq(tablet) {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+	}
 }
 .modal__social-item {
   display: inline;
@@ -156,8 +166,8 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
-  height: 230px;
-  width: 200px;
+  height: auto;
+  width: 120px;
   @include mq(tablet) {
     display: flex;
     flex-wrap: wrap;
@@ -174,10 +184,20 @@
 
 .modal__img {
   display: inline;
-  width: 160px;
-  // height: 190px;
+  width: 125px;
+  height: 165px;
   margin-bottom: 8px;
   background-size: contain;
+	@include mq(tablet) {
+		width: 120px;
+		height: 170px;
+	}
+}
+.fix {
+	height: 180px;
+	@include mq(tablet) {
+		height: 170px;
+	}
 }
 
 .footer__title-modal {
@@ -191,14 +211,22 @@
   }
 }
 .modal__text-name {
+	font-size: 10px;
+  line-height: 1.1;
+	@include mq(tablet) {
   font-size: 14px;
   line-height: 1.2;
   font-weight: 500;
+	}
 }
 .modal__text-post {
+	font-size: 8px;
+  line-height: 1.1;
+	@include mq(tablet) {
   font-size: 11px;
   line-height: 1.2;
   font-weight: 400;
+	}
 }
 
 .modal__social-icon {
