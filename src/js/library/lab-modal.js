@@ -61,7 +61,9 @@ function createModalMarkup(arr, id) {
   markUp = `
       <img
         class="modal__form-img"
-        src="https://image.tmdb.org/t/p/w500${poster_path}"
+        src="${!poster_path ? 'https://img.freepik.com/free-vector/error-404-concept-for-landing-page_52683-20173.jpg?w=2000' :
+          'https://image.tmdb.org/t/p/w500' + poster_path
+        }"
         alt=""
       />
       <div class="modal__descript">
@@ -89,13 +91,16 @@ function createModalMarkup(arr, id) {
               <td class="modal__text-params modal__text-low">${getGeneres(
                 filteredFilm[0].genre_ids,
                 genresArr
-              ).join(', ')}</td>
+              ).join(', ') ? getGeneres(
+                filteredFilm[0].genre_ids,
+                genresArr
+              ).join(', ') : 'NO DATA'}</td>
             </tr>
           </tbody>
         </table>
         <h3 class="modal__descript-titel">About</h3>
         <p class="modal__descript-text">
-          ${overview}
+          ${overview ? overview : 'NO DATA'}
         </p>
         <ul class="modal__button__list">
           <li>
