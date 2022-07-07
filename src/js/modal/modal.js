@@ -166,8 +166,6 @@ function setToLocalStoregWatched(e) {
 
     const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);
-    const index = films.findIndex(item => item.id === Number(idFilm));
-    films.splice(index, 1);
     localStorage.setItem('watched', JSON.stringify(films));
     e.target.textContent = 'Add to watched';
     e.target.dataset.action = 'add';
