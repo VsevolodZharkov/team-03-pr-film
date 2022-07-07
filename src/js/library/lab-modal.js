@@ -1,4 +1,7 @@
 import { getGeneres } from './createlistcards';
+import { getMovieFromLocalStorage } from './getfromlocalstorage';
+import { createMarkUpListFilm } from './createlistcards';
+import { renderDefalt } from '../library';
 
 const refs = {
   openGallery: document.querySelector('.gallery'),
@@ -11,10 +14,11 @@ const refs = {
 let film;
 let markUp = '';
 let idFilm;
+let keyOfLocalStrg;
 
-function showLabModal(data) {
-  console.log(data);
-  film = data;
+function showLabModal(key) {
+  keyOfLocalStrg = key;
+  film = getMovieFromLocalStorage(key);
   refs.openGallery.addEventListener('click', onClickCard);
 }
 
@@ -93,13 +97,22 @@ function createModalMarkup(arr, id) {
         </ul>
       </div>
   `;
+
   refs.article.innerHTML = markUp;
   const btnWatched = document.querySelector('.modal__button__item-watched');
   const btnQueue = document.querySelector('.modal__button__item-queue');
 
-  ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  // btnWatched.addEventListener('click', setToLocalStoregWatched);
-  // btnQueue.addEventListener('click', setToLocalStoregQue);
+  if (keyOfLocalStrg === 'queue') {
+    btnWatched.textContent = `add to Watched`;
+    btnQueue.textContent = `remove from queue`;
+    btnQueue.addEventListener('click', deleteFromLS);
+    btnWatched.addEventListener('click', addToLS);
+  } else {
+    btnWatched.textContent = `remove from Watched`;
+    btnQueue.textContent = `add to queue`;
+    btnWatched.addEventListener('click', deleteFromLS);
+    btnQueue.addEventListener('click', addToLS);
+  }
 }
 
 const closeBtn = document.querySelector('.modal__btn');
@@ -131,12 +144,56 @@ function removeListener() {
   document.removeEventListener('click', onClickBackdrop);
 }
 
+function deleteFromLS(e) {
+  const films = getMovieFromLocalStorage(keyOfLocalStrg);
+  const index = films.findIndex(item => item.id === Number(idFilm));
+
+  films.splice(index, 1);
+
+  localStorage.setItem(keyOfLocalStrg, JSON.stringify(films));
+  createMarkUpListFilm(1, films);
+  refs.backdrop.classList.remove('is-open');
+  if (films.length === 0) {
+    renderDefalt();
+  }
+}
+
+function addToLS(e) {
+  if (keyOfLocalStrg === 'queue') {
+    console.log('here queue');
+    const filmsWatched = getMovieFromLocalStorage('watched');
+    const isSelectMovie = filmsWatched.find(item => item.id === Number(idFilm));
+    //если такой фильм есть
+    if (isSelectMovie) {
+      return;
+    }
+    //добавляем
+    const filmsQueue = getMovieFromLocalStorage('queue');
+    const selectFilm = filmsQueue.find(item => item.id === Number(idFilm));
+    filmsWatched.push(selectFilm);
+    localStorage.setItem('watched', JSON.stringify(filmsWatched));
+    console.log(e.target.textContent);
+    e.target.textContent = 'added';
+  } else if (keyOfLocalStrg === 'watched') {
+    console.log('here watch');
+    const filmsQueue = getMovieFromLocalStorage('queue');
+    const isSelectMovie = filmsQueue.find(item => item.id === Number(idFilm));
+    //если такой фильм есть
+    if (isSelectMovie) {
+      return;
+    }
+    //добавляем
+    const filmsWatched = getMovieFromLocalStorage('watched');
+    const selectFilm = filmsWatched.find(item => item.id === Number(idFilm));
+    filmsQueue.push(selectFilm);
+    localStorage.setItem('queue', JSON.stringify(filmsQueue));
+    e.target.textContent = 'added';
+  }
+}
+
 // function setToLocalStoregWatched(e) {
 //   console.log(e);
-//   const selectFilm = film.find(item => {
-//     return item.id === Number(idFilm);
-//   });
-//   setItemToLocalStorage('watched', selectFilm);
+//
 //   e.target.textContent = 'Dоne!';
 //   // e.target.setAttribute('disabled', 'disabled');
 // }

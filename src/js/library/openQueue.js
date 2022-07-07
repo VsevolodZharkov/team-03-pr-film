@@ -21,7 +21,7 @@ function openQueue() {
   //рендер пагинации
   renderBtnPag(1, totalPages);
   handlerPagination(totalPages, 'queue');
-  showLabModal(films);
+  showLabModal('queue');
 }
 
 export { openQueue };
