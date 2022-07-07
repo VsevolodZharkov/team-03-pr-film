@@ -58,6 +58,7 @@ function renderBtnPag(page, totalPages) {
 }
 
 /////////////////////////////////////////////////////////////////
+// const key = 
 function handlerPagination(totalPages) {
   refsPag.pagContainer.addEventListener('click', onClickPagBtn);
 
