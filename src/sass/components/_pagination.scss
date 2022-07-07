@@ -20,11 +20,20 @@
 }
 
 .previos,
+.next {
+  display: none;
+  @include mq(tablet) {
+    display: inline-block;
+  }
+}
+
+.previos,
 .next,
 .pagination__dottes,
 .pagination__btn {
-  font-size: 16px;
-  max-width: 40px;
+  font-size: 13px;
+  min-width: 34px;
+  max-width: 36px;
   height: 40px;
   background-color: #fff;
   border: none;

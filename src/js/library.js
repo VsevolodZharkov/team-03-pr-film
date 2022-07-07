@@ -1,25 +1,26 @@
-// import { createMarkUp } from './markup/createmarkup';
-// import { getGenresPopfilms } from './apisreq/genresandtrends';
-// import { renderButtonsPag } from './paginaton/pagination';
-// import { showModal } from './modal/modal';
-// import { spiner } from './paginaton/spiner';
-// import { SeachByQuery } from './header/header';
-// import { getTrendMovies } from './apisreq/gettrends';
+import { getMovieFromLocalStorage } from './library/getfromlocalstorage';
+import { createMarkUpListFilm } from './library/createlistcards';
+import { renderBtnPag, handlerPagination } from './library/lab-pag';
+import { showLabModal } from './library/lab-modal';
 
 // //----------------------------------------------------------------//
-// let searchData = null;
-// // do ligic with seach film by name
+const refs = {
+  btnWatched: document.querySelector('.js-watched'),
+  btnQueue: document.querySelector('.js-queue'),
+  gallery: document.querySelector('.gallery'),
+  pagination: document.querySelector('.js-pagination'),
+};
 
-// getGenresPopfilms()
-//   .then(data => {
-//     console.log(data);
-//     createMarkUp(data.results);
-//     renderButtonsPag(1, data.total_pages);
-//     showModal(data);
-//   })
-//   .catch(er => console.log(er))
-//   .finally(() => {
-//     spiner.stop();
-//   });
+//фильми из локалстораге
+const films = getMovieFromLocalStorage('queue');
+let perPage = 20;
+let totalPages = Math.ceil(films.length / perPage);
+//активная кнопка
+refs.btnQueue.classList.add('is-active');
+//рендер карточек
+createMarkUpListFilm(1, films);
 
-// SeachByQuery();
+//рендер пагинации
+renderBtnPag(1, totalPages);
+handlerPagination(totalPages);
+showLabModal(films);
