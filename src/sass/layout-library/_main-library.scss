@@ -140,6 +140,18 @@
 .default {
   margin: 100px auto;
 }
+.message {
+  color: #ff6b08;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  @include mq(tablet) {
+    font-size: 50px;
+  }
+  @include mq(desktop) {
+    font-size: 70px;
+  }
+}
 
 .default img {
   display: block;

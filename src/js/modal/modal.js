@@ -1,5 +1,7 @@
 import { getGeneres } from '../markup/createmarkup';
 import { getMovieFromLocalStorage } from '../library/getfromlocalstorage';
+import { isInLocalstorage } from './isInLCyet';
+
 const refs = {
   openGallery: document.querySelector('.gallery'),
   closeBtn: document.querySelector('[data-modal-close]'),
@@ -46,6 +48,12 @@ function createModalMarkup(film, idFilm) {
     original_title,
   } = filteredFilm[0];
 
+  const KEY_QUEUE = 'queue';
+  const KEY_WATCHED = 'watched';
+  if (isInLocalstorage(KEY_WATCHED, idFilm)) {
+  }
+  if (isInLocalstorage(KEY_QUEUE, idFilm)) {
+  }
   markUp = `
       <img
         class="modal__form-img"
@@ -87,17 +95,27 @@ function createModalMarkup(film, idFilm) {
         </p>
         <ul class="modal__button__list">
           <li>
-            <button class="modal__button__item-watched" type="button" data-action="add">add to Watched</button>
+            <button class="modal__button__item-watched" type="button" data-action="${
+              isInLocalstorage(KEY_WATCHED, idFilm) ? 'remove' : 'add'
+            }">${
+    isInLocalstorage(KEY_WATCHED, idFilm)
+      ? 'remove from watched'
+      : 'add to watched'
+  }</button>
           </li>
-          <li><button class="modal__button__item-queue" type="button"  data-action="add">add to Queue</button></li>
+          <li><button class="modal__button__item-queue" type="button"  data-action="${
+            isInLocalstorage(KEY_QUEUE, idFilm) ? 'remove' : 'add'
+          }">${
+    isInLocalstorage(KEY_QUEUE, idFilm) ? 'remove from QUEUE' : 'add to QUEUE'
+  }</button></li>
         </ul>
       </div>
   `;
   refs.article.innerHTML = markUp;
-	// функция для рендера атрибута и контента
+  // функция для рендера атрибута и контента
   const btnWatched = document.querySelector('.modal__button__item-watched');
   const btnQueue = document.querySelector('.modal__button__item-queue');
-							
+
   btnWatched.addEventListener('click', setToLocalStoregWatched);
   btnQueue.addEventListener('click', setToLocalStoregQue);
 }
@@ -135,41 +153,45 @@ function removeListener() {
 }
 
 function setToLocalStoregWatched(e) {
-	if(e.target.dataset.action === 'add') {
-		const selectFilm = film.find(item => {
-			return item.id === Number(idFilm);
-		});
-		setItemToLocalStorage('watched', selectFilm);
-		e.target.textContent = 'Remove from watched';
-		e.target.dataset.action = 'remove';
-	} else {
-		const films = getMovieFromLocalStorage('watched');
-		const index = films.findIdex( item => item.id === Number(idFilm))
-		films.splice(index, 1)
-		localStorage.setItem('watched', films)
-		e.target.textContent = 'Add to watched';
-		e.target.dataset.action = 'add';
-	}
+  if (e.target.dataset.action === 'add') {
+    const selectFilm = film.find(item => {
+      return item.id === Number(idFilm);
+    });
+    setItemToLocalStorage('watched', selectFilm);
+    e.target.textContent = 'Remove from watched';
+    e.target.dataset.action = 'remove';
+  } else {
+    const films = getMovieFromLocalStorage('watched');
+    const index = films.findIndex(item => item.id === Number(idFilm));
+    films.splice(index, 1);
+    localStorage.setItem('watched', JSON.stringify(films));
+    e.target.textContent = 'Add to watched';
+    e.target.dataset.action = 'add';
+  }
 }
 
 function setToLocalStoregQue(e) {
-	if(e.target.dataset.action === 'add') {
-		const selectFilm = film.find(item => {
-			return item.id === Number(idFilm);
-		});
-		setItemToLocalStorage('queue', selectFilm);
-		e.target.textContent = 'Remove from queue';
-		e.target.dataset.action = 'remove';
-	} else {
-		const films = getMovieFromLocalStorage('queue');
-		const index = films.findIdex( item => item.id === Number(idFilm))
-		films.splice(index, 1)
-		localStorage.setItem('queue', films)
-		e.target.textContent = 'Add to queue';
-		e.target.dataset.action = 'add';
-	}
+  if (e.target.dataset.action === 'add') {
+    const selectFilm = film.find(item => {
+      return item.id === Number(idFilm);
+    });
+    setItemToLocalStorage('queue', selectFilm);
+    e.target.textContent = 'Remove from queue';
+    e.target.dataset.action = 'remove';
+  } else {
+    const films = getMovieFromLocalStorage('queue');
+    const index = films.findIndex(item => item.id === Number(idFilm));
+    films.splice(index, 1);
+    localStorage.setItem('queue', JSON.stringify(films));
+    e.target.textContent = 'Add to queue';
+    e.target.dataset.action = 'add';
+  }
 }
-
+/**
+ *
+ * @param {*} key
+ * @param {*} objFilm
+ */
 function setItemToLocalStorage(key, objFilm) {
   if (!localStorage.getItem(key)) {
     const array = [];

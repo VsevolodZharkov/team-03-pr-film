@@ -13,8 +13,8 @@ const refs = {
   pagination: document.querySelector('.js-pagination'),
 };
 
-let KEY_QUEUE = 'queue';
-let KEY_WATCHED = 'watched';
+const KEY_QUEUE = 'queue';
+const KEY_WATCHED = 'watched';
 
 refs.btnQueue.classList.add('is-active');
 //активная кнопка
