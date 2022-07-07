@@ -143,7 +143,7 @@
   display: inline;
 }
 .modal__social-item:not(:last-child) {
-		margin-bottom: 15px;
+		margin-right: 5px;
 		@include mq(tablet) {
 		margin-bottom: 0;
 
@@ -212,7 +212,6 @@
 }
 .modal__list-modal-social {
   display: flex;
-	flex-direction: column;
 	justify-content: flex-end;
 	height: 32px;
 	@include mq(tablet) {
