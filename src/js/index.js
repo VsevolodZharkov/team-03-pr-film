@@ -12,7 +12,6 @@ let searchData = null;
 
 getGenresPopfilms()
   .then(data => {
-    console.log(data);
     createMarkUp(data.results);
     renderButtonsPag(1, data.total_pages);
     showModal(data);
