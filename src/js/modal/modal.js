@@ -1,5 +1,5 @@
 import { getGeneres } from '../markup/createmarkup';
-
+import { getMovieFromLocalStorage } from '../library/getfromlocalstorage';
 const refs = {
   openGallery: document.querySelector('.gallery'),
   closeBtn: document.querySelector('[data-modal-close]'),
@@ -85,16 +85,17 @@ function createModalMarkup(film, idFilm) {
         </p>
         <ul class="modal__button__list">
           <li>
-            <button class="modal__button__item-watched" type="button">add to Watched</button>
+            <button class="modal__button__item-watched" type="button" data-action="">add to Watched</button>
           </li>
-          <li><button class="modal__button__item-queue" type="button">add to queue</button></li>
+          <li><button class="modal__button__item-queue" type="button"  data-action="">add to queue</button></li>
         </ul>
       </div>
   `;
   refs.article.innerHTML = markUp;
+	// функция для рендера атрибута и контента
   const btnWatched = document.querySelector('.modal__button__item-watched');
   const btnQueue = document.querySelector('.modal__button__item-queue');
-
+							
   btnWatched.addEventListener('click', setToLocalStoregWatched);
   btnQueue.addEventListener('click', setToLocalStoregQue);
 }
@@ -129,22 +130,39 @@ function removeListener() {
 }
 
 function setToLocalStoregWatched(e) {
-  console.log(e);
-  const selectFilm = film.find(item => {
-    return item.id === Number(idFilm);
-  });
-  setItemToLocalStorage('watched', selectFilm);
-  e.target.textContent = 'Dоne!';
-  // e.target.setAttribute('disabled', 'disabled');
+	if(e.target.dataset.action === 'add') {
+		const selectFilm = film.find(item => {
+			return item.id === Number(idFilm);
+		});
+		setItemToLocalStorage('watched', selectFilm);
+		e.target.textContent = 'Remove from watched';
+		e.target.dataset.action = 'remove';
+	} else {
+		const films = getMovieFromLocalStorage('watched');
+		const index = films.findIdex( item => item.id === Number(idFilm))
+		films.splice(index, 1)
+		localStorage.setItem('watched', films)
+		e.target.textContent = 'Add to watched';
+		e.target.dataset.action = 'add';
+	}
 }
+
 function setToLocalStoregQue(e) {
-  console.log(e);
-  const selectFilm = film.find(item => {
-    return item.id === Number(idFilm);
-  });
-  setItemToLocalStorage('queue', selectFilm);
-  e.target.textContent = 'Dоne!';
-  // e.target.setAttribute('disabled', 'disabled');
+	if(e.target.dataset.action === 'add') {
+		const selectFilm = film.find(item => {
+			return item.id === Number(idFilm);
+		});
+		setItemToLocalStorage('queue', selectFilm);
+		e.target.textContent = 'Remove from queue';
+		e.target.dataset.action = 'remove';
+	} else {
+		const films = getMovieFromLocalStorage('queue');
+		const index = films.findIdex( item => item.id === Number(idFilm))
+		films.splice(index, 1)
+		localStorage.setItem('queue', films)
+		e.target.textContent = 'Add to queue';
+		e.target.dataset.action = 'add';
+	}
 }
 
 function setItemToLocalStorage(key, objFilm) {
