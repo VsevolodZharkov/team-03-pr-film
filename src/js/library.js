@@ -13,8 +13,8 @@ const refs = {
   pagination: document.querySelector('.js-pagination'),
 };
 
-// let KEY_QUEUE = 'queue';
-// let KEY_WATCHED = 'watched';
+let KEY_QUEUE = 'queue';
+let KEY_WATCHED = 'watched';
 
 refs.btnQueue.classList.add('is-active');
 //активная кнопка
@@ -23,7 +23,14 @@ refs.btnQueue.addEventListener('click', openQueue);
 
 // фильми из локалстораге
 const films = getMovieFromLocalStorage('queue');
-if (!films) {
+if (films.length === 0) {
+  renderDefalt();
+} else {
+  renderCards(films);
+}
+
+// если пусто в локал сторедж
+function renderDefalt() {
   refs.gallery.innerHTML = `<li class="default">
         <p class="message">Sorry, there is nothing here yet.</p>
         <img
@@ -31,8 +38,10 @@ if (!films) {
           alt="Empty"
         />
       </li>`;
-  return;
-} else {
+}
+
+// если есть данные в локал сторедж по ключу "queue"
+function renderCards(films) {
   let perPage = 20;
   let totalPages = Math.ceil(films.length / perPage);
   // рендер карточек
@@ -40,8 +49,8 @@ if (!films) {
 
   // рендер пагинации
   renderBtnPag(1, totalPages);
-  handlerPagination(totalPages, 'queue');
-  showLabModal(films);
-  console.log(films);
-  console.log(refs.gallery);
+  handlerPagination(totalPages, KEY_QUEUE);
+  showLabModal(KEY_QUEUE);
 }
+
+export { renderDefalt };
