@@ -2,6 +2,7 @@ import { getGeneres } from './createlistcards';
 import { getMovieFromLocalStorage } from './getfromlocalstorage';
 import { createMarkUpListFilm } from './createlistcards';
 import { renderDefalt } from '../library';
+import { isInLocalstorage } from '../modal/isInLCyet';
 
 const refs = {
   openGallery: document.querySelector('.gallery'),
@@ -37,7 +38,7 @@ function onClickCard(event) {
 }
 
 function createModalMarkup(arr, id) {
-	console.log(arr);
+  console.log(arr);
   const filteredFilm = arr.filter(el => {
     return el.id === Number(id);
   });

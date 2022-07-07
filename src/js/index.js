@@ -10,12 +10,17 @@ import { getVotes } from './library/createlistcards';
 //----------------------------------------------------------------//
 /// hekekke
 let searchData = null;
+
 // do ligic with seach film by name
 
 getGenresPopfilms()
   .then(data => {
     createMarkUp(data.results);
+    // if (localStorage.getItem('currentPage')) {
+
+    // }
     renderButtonsPag(1, data.total_pages);
+    // localStorage.setItem('currentPage', page)
     showModal(data);
   })
   .catch(er => console.log(er))
