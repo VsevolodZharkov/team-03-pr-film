@@ -5,6 +5,7 @@ import { showModal } from './modal/modal';
 import { spiner } from './paginaton/spiner';
 import { SeachByQuery } from './header/header';
 import { getTrendMovies } from './apisreq/gettrends';
+import { getVotes } from './library/createlistcards';
 
 //----------------------------------------------------------------//
 /// hekekke

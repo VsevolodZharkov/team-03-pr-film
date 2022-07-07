@@ -11,6 +11,7 @@ function createMarkUpListFilm(page, films) {
 
   const gallery = document.querySelector('.gallery');
   const genresArr = JSON.parse(localStorage.getItem('genres'));
+
   let markup = '';
   for (let i = startEl; i < endEl; i++) {
     if (i < films.length) {
@@ -46,12 +47,15 @@ function createMarkUpListFilm(page, films) {
                                 : 'NO DATA'
                             }
                         </span>
-                        <span>
+                        <span class="article__description-year">
                             ${
                               films[i].release_date
                                 ? films[i].release_date.slice(0, 4)
                                 : 'OUR ERA'
                             }
+                        </span>
+                        <span class="modal__text-params-vote modal__text-params">
+                        ${films[i].vote_average}           
                         </span>
                     </p>
                 </article>
@@ -79,3 +83,4 @@ function getGeneres(arr, genres) {
   });
 }
 export { createMarkUpListFilm, getGeneres };
+export { getVotes };
