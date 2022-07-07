@@ -17,6 +17,7 @@
   height: 398px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-radius: 5px;
   @include mq(tablet) {
     margin-bottom: 8px;
     width: 336px;
@@ -104,6 +105,7 @@
     padding-right: 5px;
     font-weight: 500;
     font-size: 12px;
+    line-height: 1.16;
     padding-bottom: 5px;
     color: #ff6b08;
     @include mq(tablet) {
