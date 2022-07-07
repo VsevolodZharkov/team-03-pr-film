@@ -8,7 +8,7 @@ const refsPag = {
   pagContainer: document.querySelector('.js-pagination'),
 };
 
-let currentPage;
+let currentPage = localStorage.getItem('currentPage');
 
 function renderButtonsPag(page, totalPages, callback) {
   if (!page || !totalPages || totalPages === 1) {
@@ -79,11 +79,11 @@ function onClickPagBtn(event) {
     currentPage = Number(event.target.textContent);
   }
   /// changes
-
+  localStorage.setItem('currentPage', currentPage);
   getTrendMovies(currentPage)
     .then(d => {
       createMarkUp(d.results);
-
+      currentPage = localStorage.getItem('currentPage');
       renderButtonsPag(currentPage, d.total_pages);
       showModal(d);
     })

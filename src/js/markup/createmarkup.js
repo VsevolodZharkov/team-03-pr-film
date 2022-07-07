@@ -3,7 +3,6 @@
  * @param {array} films
  */
 function createMarkUp(films) {
-  // console.log(films);
   const gallery = document.querySelector('.gallery');
   const genresArr = JSON.parse(localStorage.getItem('genres'));
   const markup = films

@@ -5,7 +5,7 @@ import { createMarkUp } from '../markup/createmarkup';
 
 async function getGenresPopfilms() {
   await setupGenesToStorage();
-  let trendPage = 1;
+  let trendPage = localStorage.getItem('currentPage');
 
   return await getTrendMovies(trendPage);
 }
