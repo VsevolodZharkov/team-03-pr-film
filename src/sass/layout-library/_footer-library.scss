@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  // margin-bottom: auto;
   height: 100px;
   padding: 28px 36px 30px 48px;
   @include mq(tablet) {
@@ -63,6 +64,7 @@
   height: 100vh;
   top: 0;
   left: 0;
+	overflow-y: auto;
 
   opacity: 0;
   visibility: hidden;
@@ -79,7 +81,10 @@
   visibility: visible;
   pointer-events: initial;
 }
-
+.ishidden {
+  overflow: hidden;
+	height: 100vh;
+}
 .modal__btn-footer {
   display: flex;
   align-items: center;
@@ -116,10 +121,10 @@
 }
 .modal__form-footer {
   width: 280px;
-  height: 1274px;
+  height: auto;
   z-index: 20;
   background-color: #fff;
-  padding: 44px 15px 15px;
+  padding: 25px 5px 5px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -135,15 +140,21 @@
   }
 }
 .modal__list {
-  display: flex;
+	display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+	align-items: baseline;
+	@include mq(tablet) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+	}
 }
 .modal__social-item {
   display: inline;
 }
 .modal__social-item:not(:last-child) {
-  margin-bottom: 15px;
+  margin-right: 5px;
   @include mq(tablet) {
     margin-bottom: 0;
   }
@@ -155,8 +166,8 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
-  height: 230px;
-  width: 200px;
+  height: auto;
+  width: 120px;
   @include mq(tablet) {
     display: flex;
     flex-wrap: wrap;
@@ -170,13 +181,25 @@
 .last-m {
   margin-bottom: 0;
 }
+
 .modal__img {
   display: inline;
-  width: 160px;
-  // height: 190px;
+  width: 125px;
+  height: 165px;
   margin-bottom: 8px;
   background-size: contain;
+	@include mq(tablet) {
+		width: 130px;
+		height: 190px;
+	}
 }
+.fix {
+	height: 180px;
+	@include mq(tablet) {
+		height: 170px;
+	}
+}
+
 .footer__title-modal {
   display: flex;
   justify-content: center;
@@ -188,19 +211,27 @@
   }
 }
 .modal__text-name {
+	font-size: 10px;
+  line-height: 1.1;
+	@include mq(tablet) {
   font-size: 14px;
   line-height: 1.2;
   font-weight: 500;
+	}
 }
 .modal__text-post {
+	font-size: 8px;
+  line-height: 1.1;
+	@include mq(tablet) {
   font-size: 11px;
   line-height: 1.2;
   font-weight: 400;
+	}
 }
 
 .modal__social-icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   fill: #000000;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -211,7 +242,6 @@
 }
 .modal__list-modal-social {
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
   height: 32px;
   @include mq(tablet) {
