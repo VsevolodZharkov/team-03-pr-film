@@ -174,7 +174,7 @@
     justify-content: center;
     flex-direction: column;
     height: 290px;
-    // width: 170px;
+    height: auto;
     margin-bottom: 0;
   }
 }
@@ -230,16 +230,28 @@
 }
 
 .modal__social-icon {
-  width: 25px;
-  height: 25px;
+  width: 27px;
+  height: 27px;
   fill: #000000;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	@include mq(tablet) {
+		width: 30px;
+		height: 30px;
+	}
 }
 .modal__social-icon :hover,
 .modal__social-icon :focus {
   background-color: #ffffff;
   fill: #ff6b08;
 }
+// .modal__social-use {
+// 	width: 27px;
+//   height: 27px;
+// 	@include mq(tablet) {
+// 		width: 30px;
+// 		height: 30px;
+// 	}
+// }
 .modal__list-modal-social {
   display: flex;
   justify-content: flex-end;
