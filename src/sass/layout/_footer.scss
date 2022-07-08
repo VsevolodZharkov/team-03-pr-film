@@ -142,7 +142,6 @@
 .modal__list {
 	display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 	align-items: baseline;
 	@include mq(tablet) {
   display: flex;
@@ -174,7 +173,7 @@
     justify-content: center;
     flex-direction: column;
     height: 290px;
-    height: auto;
+    width: 140px;
     margin-bottom: 0;
   }
 }
