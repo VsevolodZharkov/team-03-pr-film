@@ -2,12 +2,12 @@ import { createMarkUp } from './markup/createmarkup';
 import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
-import { spiner } from './paginaton/spiner';
+// import { spiner } from './paginaton/spiner';
 import { seachByQuery } from './header/header';
-import { getTrendMovies } from './apisreq/gettrends';
+// import { getTrendMovies } from './apisreq/gettrends';
 
 //----------------------------------------------------------------//
-
+const gallery = document.querySelector('.gallery');
 let searchData = null;
 let currentPage = 1;
 if (localStorage.getItem('currentPage')) {
@@ -18,13 +18,16 @@ if (localStorage.getItem('currentPage')) {
 
 getGenresPopfilms()
   .then(data => {
+    // spiner.spin(gallery);
     createMarkUp(data.results);
     renderButtonsPag(currentPage, data.total_pages);
     showModal(data);
   })
   .catch(er => console.log(er))
   .finally(() => {
-    spiner.stop();
+    // spiner.stop();
   });
 
 seachByQuery();
+
+export { gallery };

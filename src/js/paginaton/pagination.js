@@ -1,7 +1,8 @@
 import { createMarkUp } from '../markup/createmarkup';
 import { getTrendMovies } from '../apisreq/gettrends';
 import { showModal } from '../modal/modal';
-import { spiner } from './spiner';
+// import { spiner } from './spiner';
+// import { gallery } from '../index';
 //-------------------------------------------------------------------//
 
 const refsPag = {

@@ -1,14 +1,14 @@
 import { getTrendMovies } from './gettrends';
 import { setupGenesToStorage } from './getgenres';
-import { createMarkUp } from '../markup/createmarkup';
+// import { createMarkUp } from '../markup/createmarkup';
 //-----------------------------------------------------------//
 
 async function getGenresPopfilms() {
-  await setupGenesToStorage();
+  setupGenesToStorage();
   let trendPage = localStorage.getItem('currentPage');
-	if(!localStorage.getItem('currentPage')) {
-		trendPage = 1
-	}
+  if (!localStorage.getItem('currentPage')) {
+    trendPage = 1;
+  }
   return await getTrendMovies(trendPage);
 }
 

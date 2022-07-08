@@ -2,7 +2,6 @@ import { searchMovies } from '../apisreq/getserchquery.js';
 import { createMarkUp } from '../markup/createmarkup';
 import { renderButtonsPag, onClickPagBtn } from '../paginaton/pagination';
 import { showModal } from '../modal/modal';
-import { spiner } from '../paginaton/spiner';
 
 //-------------------------------------------------------//
 const pagContainer = document.querySelector('.js-pagination');
@@ -11,6 +10,7 @@ const gallery = document.querySelector('.gallery');
 const popup = document.querySelector('.search');
 let query;
 let currentPage;
+
 function seachByQuery() {
   formSearch.addEventListener('submit', onSubmit);
 }
@@ -30,22 +30,24 @@ function onSubmit(evt) {
     return;
   }
 
-  searchMovies(query, 1).then(searchData => {
-    console.log(searchData);
-    if (searchData.total_pages === 0) {
-      popup.textContent =
-        'Search result not successful. Enter the correct movie name and try again';
-      setTimeout(() => {
-        popup.textContent = '';
-      }, 2000);
-      return;
-    }
-    createMarkUp(searchData.results);
-    renderButtonsPag(1, searchData.total_pages);
+  searchMovies(query, 1)
+    .then(searchData => {
+      if (searchData.total_pages === 0) {
+        popup.textContent =
+          'Search result not successful. Enter the correct movie name and try again';
+        setTimeout(() => {
+          popup.textContent = '';
+        }, 2000);
+        return;
+      }
+      createMarkUp(searchData.results);
+      renderButtonsPag(1, searchData.total_pages);
 
-    pagContainer.addEventListener('click', handlerOnPag);
-    showModal(searchData);
-  });
+      pagContainer.addEventListener('click', handlerOnPag);
+      showModal(searchData);
+    })
+    .catch(e => console.log(e))
+    .finally(() => {});
   // evt.target.reset();
 }
 
@@ -68,6 +70,7 @@ function handlerOnPag(event) {
 
   searchMovies(query, currentPage)
     .then(d => {
+      gallery.innerHTML = '';
       createMarkUp(d.results);
       renderButtonsPag(currentPage, d.total_pages);
       showModal(d);
