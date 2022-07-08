@@ -134,21 +134,24 @@
     height: 650px;
   }
   @include mq(desktop) {
-    width: 704px;
+    width: 550px;
     height: 650px;
     padding: 44px 20px 20px 20px;
   }
 }
 .modal__list {
-	flex-wrap: wrap;
-	align-items: baseline;
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: row;
+	justify-content: space-around;
 	@include mq(tablet) {
 
 	}
 }
 .modal__div-flex {
+	display: flex;
+	flex-wrap: wrap;
+  align-items: stretch;
+	justify-content: space-around;
 	@include mq(tablet) {
 	display: flex;
 	align-items: baseline;
@@ -209,7 +212,7 @@
 	}
 }
 .fix {
-	height: 180px;
+	height: 170px;
 	@include mq(tablet) {
 		height: 190px;
 	}
@@ -259,14 +262,7 @@
   background-color: #ffffff;
   fill: #ff6b08;
 }
-// .modal__social-use {
-// 	width: 27px;
-//   height: 27px;
-// 	@include mq(tablet) {
-// 		width: 30px;
-// 		height: 30px;
-// 	}
-// }
+
 .modal__list-modal-social {
   display: flex;
   justify-content: flex-end;
