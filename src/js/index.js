@@ -2,13 +2,11 @@ import { createMarkUp } from './markup/createmarkup';
 import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
-import { spiner } from './paginaton/spiner';
+// import { spiner } from './paginaton/spiner';
 import { seachByQuery } from './header/header';
-import { getTrendMovies } from './apisreq/gettrends';
+// import { getTrendMovies } from './apisreq/gettrends';
 
 //----------------------------------------------------------------//
-/// hekekke
-/// hekekke1qqqq
 
 let searchData = null;
 let currentPage = 1;
@@ -16,7 +14,8 @@ if (localStorage.getItem('currentPage')) {
   currentPage = localStorage.getItem('currentPage');
 }
 
-// do ligic with seach film by name
+// do ligic with seach film by
+//test
 
 getGenresPopfilms()
   .then(data => {
@@ -25,8 +24,6 @@ getGenresPopfilms()
     showModal(data);
   })
   .catch(er => console.log(er))
-  .finally(() => {
-    spiner.stop();
-  });
+  .finally(() => {});
 
 seachByQuery();

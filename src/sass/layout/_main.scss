@@ -33,6 +33,7 @@
 }
 
 .gallery {
+  position: relative;
   @include mq(tablet-only) {
     display: flex;
     flex-wrap: wrap;
