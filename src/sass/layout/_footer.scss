@@ -144,18 +144,25 @@
 	flex-direction: row;
 	justify-content: space-around;
 	@include mq(tablet) {
-
+		flex-direction: row;
+		justify-content: space-around;
+		display: contents;
 	}
 }
 .modal__div-flex {
 	display: flex;
 	flex-wrap: wrap;
   align-items: stretch;
-	justify-content: space-around;
 	@include mq(tablet) {
 	display: flex;
 	align-items: baseline;
+	flex-wrap: wrap;
 	}
+	@include mq(tablet) {
+		display: flex;
+		justify-content: space-around;
+		
+		}
 }
 .flex-div {
 	@include mq(tablet) {
