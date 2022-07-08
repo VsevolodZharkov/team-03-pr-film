@@ -48,10 +48,10 @@ function renderButtonsPag(page, totalPages, callback) {
     markup += `<li class="pagination__item"><button class="pagination__btn">${afterTwoPage}</button></li>`;
   }
 
-  if (totalPages > page + 3) {
+  if (totalPages > Number(page) + 3) {
     markup += `<li class="pagination__item"><button class="pagination__dottes">...</button></li>`;
   }
-  if (totalPages > page + 2) {
+  if (totalPages > Number(page) + 2) {
     markup += `<li class="pagination__item"><button class="pagination__btn">${totalPages}</button></li>`;
   }
   if (totalPages > page) {
