@@ -1,0 +1,31 @@
+.body-main {
+    background-color: #222;
+  }
+
+.gallery__item {
+    background: linear-gradient(145deg, #222, #222);
+    box-shadow: 20px 20px 60px #222, -20px -20px 60px #7c6969;
+    &:hover {
+    transform: scale(1.03);
+    }
+}
+
+  .article__description {
+    color: #fff;
+}
+
+.footer__text {
+    color: #fff;
+}
+
+.footer__link {
+    color: #fff;
+}
+
+.theme__icon[data-theme="dark"] {
+    display: none;
+  }
+  
+  .theme__icon[data-theme="light"] {
+    display: block;
+  }

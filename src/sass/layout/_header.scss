@@ -290,3 +290,20 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: $transition;
   }
 }
+
+.theme {
+  display: flex;
+  margin-right: 40px;
+}
+
+.menu-container__mobile {
+  display: flex;
+}
+
+.theme__icon {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: #ffffff;
+}
+
