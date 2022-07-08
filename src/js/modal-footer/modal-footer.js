@@ -20,20 +20,20 @@
 	function closeModal (e) {
 		e.preventDefault();
 		refs.modal.classList.remove("is-hidden");
-		refs.body.classList.add("ishidden")
+		refs.body.classList.remove("ishidden")
 		removeListener();
 	}
 	function onClickBackdrop(event) {
 		if (event.target === refs.modal) {
 			refs.modal.classList.remove('is-hidden');
-			refs.body.classList.add("ishidden")
+			refs.body.classList.remove("ishidden")
 			removeListener();
 		}
 	}
 	function onEscClick(event) {
 		if (event.code === 'Escape') {
 			refs.modal.classList.remove('is-hidden');
-			refs.body.classList.add("ishidden")
+			refs.body.classList.remove("ishidden")
 			removeListener();
 		}
 	}
