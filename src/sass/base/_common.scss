@@ -1,8 +1,19 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 body {
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
-	min-height: 100vh;
+  // min-height: 100vh;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
 }

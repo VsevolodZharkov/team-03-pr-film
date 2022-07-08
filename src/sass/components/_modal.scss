@@ -84,6 +84,7 @@
   margin-bottom: 20px;
   width: 240px;
   height: 357px;
+  border-radius: 5px;
 
   @include mq(tablet) {
     margin-right: 68px;
