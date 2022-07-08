@@ -29,8 +29,8 @@ function onSubmit(evt) {
 
     return;
   }
-
-  searchMovies(query, 1)
+  currentPage = 1;
+  searchMovies(query, currentPage)
     .then(searchData => {
       if (searchData.total_pages === 0) {
         popup.textContent =
