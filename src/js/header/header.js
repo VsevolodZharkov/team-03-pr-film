@@ -30,6 +30,7 @@ function onSubmit(evt) {
     return;
   }
   currentPage = 1;
+  localStorage.setItem('currentPage', currentPage);
   searchMovies(query, currentPage)
     .then(searchData => {
       if (searchData.total_pages === 0) {
