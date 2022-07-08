@@ -1,9 +1,8 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
 
 // Стили для файла с примером HTML-фрагмента
+// Base
+@import './base/reset';
+@import './base/common';
 
 // Utils
 @import './utils/mixin';
@@ -11,37 +10,14 @@
 @import './utils/container';
 @import './utils/hidden';
 
-// Base
-@import './base/reset';
-@import './base/common';
+
 
 // Components
 @import './components/modal';
 @import './components/pagination';
-// @import './components/modal-franchise';
-// @import './components/menu';
-// @import './components/modal-contacts';
 
 // Layout
 @import './layout/header';
 @import './layout/main';
 @import './layout/footer';
 
-
-// .header {
-//     background-color: #2f303a;
-//     // background-color: getColor('background-footer');
-//     background-image: linear-gradient(to right,
-//             getColor('background-overlay'),
-//             getColor('background-overlay')),
-//         url('../header-img/Group-86.jpg');
-
-//     background-image: linear-gradient(to right,
-//             getColor('background-overlay'),
-//             getColor('background-overlay')),
-//         url(../header-img/Group-86@2x.jpg);
-
-//     background-size: cover;
-//     background-position: center;
-//     background-repeat: no-repeat;
-// }
