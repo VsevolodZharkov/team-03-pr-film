@@ -1,4 +1,4 @@
-.body-main {
+.light {
     background-color: #fff;
   }
 
@@ -15,10 +15,6 @@
     color: #000000;
 }
 
-.theme__icon[data-theme="dark"] {
-    display: block;
-  }
-  
-  .theme__icon[data-theme="light"] {
+  .is-hidden {
     display: none;
   }
