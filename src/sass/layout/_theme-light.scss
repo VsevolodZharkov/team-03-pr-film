@@ -1,0 +1,20 @@
+.light {
+    background-color: #fff;
+  }
+
+.gallery__item {
+    background: linear-gradient(145deg, #ffffff, #d3d3d3);
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    &:hover {
+      transform: scale(1.03);
+    }
+    
+}
+
+.article__description {
+    color: #000000;
+}
+
+  .is-hidden {
+    display: none;
+  }
