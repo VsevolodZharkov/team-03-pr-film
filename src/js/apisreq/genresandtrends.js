@@ -6,8 +6,10 @@ import { setupGenesToStorage } from './getgenres';
 async function getGenresPopfilms() {
   setupGenesToStorage();
   let trendPage = localStorage.getItem('currentPage');
+
   if (!localStorage.getItem('currentPage')) {
     trendPage = 1;
+
   }
   return await getTrendMovies(trendPage);
 }

@@ -5,7 +5,7 @@ import { showModal } from './modal/modal';
 // import { spiner } from './paginaton/spiner';
 import { seachByQuery } from './header/header';
 // import { getTrendMovies } from './apisreq/gettrends';
-
+import { buttonUp } from './button-up/buttton-up'
 //----------------------------------------------------------------//
 
 let searchData = null;
@@ -27,3 +27,4 @@ getGenresPopfilms()
   .finally(() => {});
 
 seachByQuery();
+buttonUp();

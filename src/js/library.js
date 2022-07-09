@@ -4,7 +4,7 @@ import { renderBtnPag, handlerPagination } from './library/lab-pag';
 import { showLabModal } from './library/lab-modal';
 import { openWatched } from './library/openWatched';
 import { openQueue } from './library/openQueue';
-
+import { buttonUp } from './button-up/buttton-up'
 // //----------------------------------------------------------------//
 const refs = {
   btnWatched: document.querySelector('.js-watched'),
@@ -52,5 +52,5 @@ function renderCards(films) {
   handlerPagination(totalPages, KEY_QUEUE);
   showLabModal(KEY_QUEUE);
 }
-
+buttonUp();
 export { renderDefalt };
