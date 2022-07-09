@@ -4,7 +4,6 @@ main {
 .main__container {
   padding-top: 20px;
   padding-bottom: 40px;
-  // min-height: 1000px;
   @include mq(tablet) {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -49,9 +48,14 @@ main {
 
 .gallery__item {
   border-radius: 5px;
-
-  background: linear-gradient(145deg, #ffffff, #d3d3d3);
-  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  // backdrop-filter: blur(5px);
+  // -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform var(--duration) var(--cubic-bezier);
+  overflow: hidden;
   &:hover {
     transform: scale(1.03);
   }
@@ -86,7 +90,7 @@ main {
   font-size: 12px;
   line-height: 1.16;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--text);
   @include mq(tablet) {
     line-height: 1.33;
     font-weight: 500;
@@ -108,7 +112,7 @@ main {
     padding-right: 5px;
     font-weight: 500;
     padding-bottom: 5px;
-    color: #ff6b08;
+    color: var(--accent);
     @include mq(tablet) {
       display: flex;
       align-items: center;
@@ -134,11 +138,17 @@ main {
 .pseudo-element::after {
   content: '';
   display: inline-block;
-  height: 15px;
+  height: 10px;
   width: 1px;
   margin-left: 7px;
   margin-right: 7px;
-  background-color: #ff6b08;
+  background-color: var(--accent);
+  @include mq(tablet) {
+    height: 13px;
+  }
+  @include mq(desktop) {
+    height: 15px;
+  }
 }
 
 .default {
@@ -146,7 +156,7 @@ main {
   margin-right: auto;
 }
 .message {
-  color: #ff6b08;
+  color: var(--accent);
   text-align: center;
   margin-bottom: 40px;
   font-size: 28px;

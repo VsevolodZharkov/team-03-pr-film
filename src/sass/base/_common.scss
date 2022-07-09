@@ -1,11 +1,21 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+:root {
+  --main-ff: 'Roboto', sans-serif;
+  --logo-ff: 'Raleway', sans-serif;
+  --accent: var(--accent);
+  --bg: #ffffff;
+  --text: #000;
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 250ms;
+  --btn: #007acc42;
+}
 
 body {
   height: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--main-ff);
   display: flex;
   flex-direction: column;
-  // min-height: 100vh;
+  background-color: var(--bg);
 }
 
 .wrapper {

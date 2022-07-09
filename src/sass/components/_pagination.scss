@@ -3,6 +3,7 @@
   justify-content: center;
   width: 280px;
   margin: 40px auto 0 auto;
+  gap: 2px;
 
   @media screen and (min-width: 768px) {
     width: 374px;
@@ -26,10 +27,14 @@
   min-width: 34px;
   max-width: 36px;
   height: 40px;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
-  border-radius: 5px;
-
+  border-radius: 16px;
+  color: var(--text);
+  transition-property: background-color, color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--cubic-bezier);
+  border: 1px solid transparent;
   @media screen and (min-width: 768px) {
     min-width: 40px;
     max-width: 60px;
@@ -43,16 +48,20 @@
 .next:focus,
 .pagination__btn:hover,
 .pagination__btn:focus {
-  background-color: #fbac77;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .pagination__btn {
-  background-color: #fff;
+  background-color: transparent;
+  border: 1px solid transparent;
 }
 
 .pagination__btn.active__btn {
-  background-color: #ff6b08;
+  background-color: var(--accent);
   color: #fff;
 }
 .inner-pag {
