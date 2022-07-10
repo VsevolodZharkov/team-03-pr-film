@@ -2,12 +2,12 @@ import { createMarkUp } from './markup/createmarkup';
 import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
-import { theme, currentTheme } from './switcher/switcher';
+import { currentTheme } from './switcher/switcher';
 import { seachByQuery } from './header/header';
 import { buttonUp } from './button-up/buttton-up';
 //----------------------------------------------------------------//
 // get and setup theme color
-currentTheme(theme);
+currentTheme();
 
 let currentPage = 1;
 // set curent page of trend films

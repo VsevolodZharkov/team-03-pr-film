@@ -18,32 +18,37 @@ const keyLight = 'light';
 const keyDark = 'dark';
 let theme = localStorage.getItem('theme');
 
-function currentTheme(theme) {
-  if (theme === 'light' || theme === null) {
+
+function currentTheme() {
+  if (theme === 'light' || !theme ) {
+		console.log('true');
     changeThemeLight();
   } else {
     changeThemeDark();
+		console.log('false');
   }
 }
-
+console.log(svgLight, svgDark);
 svgLight.addEventListener('click', changeThemeLight);
 svgDark.addEventListener('click', changeThemeDark);
 
 function changeThemeLight() {
+	element.style.setProperty('--accent', lightTheme.accent);
+  element.style.setProperty('--text', lightTheme.main);
+  element.style.setProperty('--bg', lightTheme.bgd);
+  element.style.setProperty('--btn', lightTheme.btn);
+
+  svgLight.classList.add('is-hidden');
+  svgDark.classList.remove('is-hidden');
+  switchTheme(keyLight);
+
+}
+
+function changeThemeDark() {
   element.style.setProperty('--accent', darkTheme.accent);
   element.style.setProperty('--text', darkTheme.main);
   element.style.setProperty('--bg', darkTheme.bgd);
   element.style.setProperty('--btn', darkTheme.btn);
-  svgLight.classList.add('is-hidden');
-  svgDark.classList.remove('is-hidden');
-  switchTheme(keyLight);
-}
-
-function changeThemeDark() {
-  element.style.setProperty('--accent', lightTheme.accent);
-  element.style.setProperty('--text', lightTheme.main);
-  element.style.setProperty('--bg', lightTheme.bgd);
-  element.style.setProperty('--btn', lightTheme.btn);
   svgLight.classList.remove('is-hidden');
   svgDark.classList.add('is-hidden');
   switchTheme(keyDark);
@@ -53,4 +58,4 @@ function switchTheme(nameTheme) {
   localStorage.setItem('theme', nameTheme);
 }
 
-export { theme, currentTheme };
+export { currentTheme };
