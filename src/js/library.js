@@ -4,7 +4,8 @@ import { renderBtnPag, handlerPagination } from './library/lab-pag';
 import { showLabModal } from './library/lab-modal';
 import { openWatched } from './library/openWatched';
 import { openQueue } from './library/openQueue';
-import { buttonUp } from './button-up/buttton-up'
+import { buttonUp } from './button-up/buttton-up';
+import { theme, currentTheme } from './switcher/switcher';
 // //----------------------------------------------------------------//
 const refs = {
   btnWatched: document.querySelector('.js-watched'),
@@ -12,6 +13,7 @@ const refs = {
   gallery: document.querySelector('.gallery'),
   pagination: document.querySelector('.js-pagination'),
 };
+currentTheme(theme);
 
 const KEY_QUEUE = 'queue';
 const KEY_WATCHED = 'watched';

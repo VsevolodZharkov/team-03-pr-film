@@ -1,4 +1,3 @@
-
 // Стили для файла с примером HTML-фрагмента
 // Base
 @import './base/reset';
@@ -10,18 +9,12 @@
 @import './utils/container';
 @import './utils/hidden';
 
-
-
 // Components
 @import './components/modal';
 @import './components/pagination';
-
 
 // Layout
 @import './layout/header';
 @import './layout/main';
 @import './layout/button-up';
 @import './layout/footer';
-@import './layout/theme-light';
-@import './layout/theme-dark';
-

@@ -243,7 +243,7 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
   &:focus {
     cursor: pointer;
     border: none;
-    background: #ff6b01;
+    background: var(--accent);
     border-radius: 5px;
   }
 }
@@ -292,8 +292,28 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .theme {
+  width: 30px;
+  height: 30px;
   display: flex;
+  justify-self: center;
+  align-items: center;
   margin-right: 40px;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.2px);
+  -webkit-backdrop-filter: blur(2.2px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  transition: transform, background-color, border;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--cubic-bezier);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
 }
 
 .menu-container__mobile {
@@ -304,12 +324,12 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  fill: #ffffff;
+  fill: #f9d71c;
 }
 
 .theme__icon-dark {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  fill: #ffffff;
+  fill: #f4f6f0;
 }

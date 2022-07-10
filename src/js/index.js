@@ -2,21 +2,19 @@ import { createMarkUp } from './markup/createmarkup';
 import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
-// import { spiner } from './paginaton/spiner';
+import { theme, currentTheme } from './switcher/switcher';
 import { seachByQuery } from './header/header';
-// import { getTrendMovies } from './apisreq/gettrends';
-import { buttonUp } from './button-up/buttton-up'
+import { buttonUp } from './button-up/buttton-up';
 //----------------------------------------------------------------//
+// get and setup theme color
+currentTheme(theme);
 
-let searchData = null;
 let currentPage = 1;
+// set curent page of trend films
 if (localStorage.getItem('currentPage')) {
   currentPage = localStorage.getItem('currentPage');
 }
-
-// do ligic with seach film by
-//test
-
+// get trend films and genres
 getGenresPopfilms()
   .then(data => {
     createMarkUp(data.results);
@@ -26,5 +24,8 @@ getGenresPopfilms()
   .catch(er => console.log(er))
   .finally(() => {});
 
+// search films by query
 seachByQuery();
+
+//home btn
 buttonUp();

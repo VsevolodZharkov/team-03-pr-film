@@ -1,5 +1,5 @@
 $gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
-$transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 .header-library__container {
   padding: 40px 20px 62px;
 
@@ -70,24 +70,15 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: inherit;
   color: #ffffff;
   background-color: transparent;
-  transition: background-color $transition;
-
-  // transition: rgba(0.4, 0, 0.2, 1);
-  //   transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  // &:hover,
-  // &:focus {
-  //   cursor: pointer;
-  //   border: none;
-  //   background: #ff6b01;
-  //   border-radius: 5px;
-  //   transition: background-color $transition;
-  //   // transition: rgba(0.4, 0, 0.2, 1);
-  //   // transform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  // }
+  transition: transform $transition, background-color $transition;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }
 .filters-row__btn--active.is-active {
-  background: #ff6b01;
+  background: var(--accent);
   border: none;
 }
 
@@ -180,4 +171,47 @@ $transition: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .btn__content {
   margin: 0;
+}
+.theme {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin-right: 40px;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.2px);
+  -webkit-backdrop-filter: blur(2.2px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  transition: transform, background-color, border;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--cubic-bezier);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+}
+
+.menu-container__mobile {
+  display: flex;
+}
+
+.theme__icon-light {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: #f9d71c;
+}
+
+.theme__icon-dark {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: #f4f6f0;
 }

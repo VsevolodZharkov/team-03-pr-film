@@ -25,6 +25,7 @@ function createMarkUpListFilm(page, films) {
                     }" alt="${
         films[i].title ? films[i].title : films[i].original_title
       }" width="280" loading="lazy">
+      <div class ="card__desc">
                     <h1 class="article__description">${
                       films[i].title ? films[i].title : films[i].original_title
                     }</h1>
@@ -58,6 +59,7 @@ function createMarkUpListFilm(page, films) {
                         ${films[i].vote_average}           
                         </span>
                     </p>
+                    </div>
                 </article>
             </li>`;
     }
