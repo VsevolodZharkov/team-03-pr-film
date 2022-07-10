@@ -13,6 +13,7 @@ function openQueue() {
   queue.classList.add('is-active');
   renderDefalt();
   const films = getMovieFromLocalStorage('queue');
+
   if (!films || films.length === 0) {
     return;
   }
@@ -26,6 +27,8 @@ function openQueue() {
   renderBtnPag(1, totalPages);
   handlerPagination(totalPages, 'queue');
   showLabModal('queue');
+  //
+  // watched.removeEventListener(openWatched);
 }
 
 export { openQueue };

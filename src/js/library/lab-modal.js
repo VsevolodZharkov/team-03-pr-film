@@ -4,6 +4,8 @@ import { createMarkUpListFilm } from './createlistcards';
 import { renderDefalt } from '../library';
 import { isInLocalstorage } from '../modal/isInLCyet';
 import { setItemToLocalStorage } from '../modal/modal';
+import { renderBtnPag, handlerPagination } from './lab-pag';
+import { renderCards } from '../library';
 //----------------------------------------------------//
 const refs = {
   openGallery: document.querySelector('.gallery'),
@@ -57,8 +59,10 @@ function createModalMarkup(arr, id) {
   markUp = `
       <img
         class="modal__form-img"
-        src="${!poster_path ? 'https://img.freepik.com/free-vector/error-404-concept-for-landing-page_52683-20173.jpg?w=2000' :
-          'https://image.tmdb.org/t/p/w500' + poster_path
+        src="${
+          !poster_path
+            ? 'https://img.freepik.com/free-vector/error-404-concept-for-landing-page_52683-20173.jpg?w=2000'
+            : 'https://image.tmdb.org/t/p/w500' + poster_path
         }"
         alt=""
       />
@@ -84,13 +88,11 @@ function createModalMarkup(arr, id) {
             </tr>
             <tr>
               <td class="modal__text-properties">Genre</td>
-              <td class="modal__text-params modal__text-low">${getGeneres(
-                filteredFilm[0].genre_ids,
-                genresArr
-              ).join(', ') ? getGeneres(
-                filteredFilm[0].genre_ids,
-                genresArr
-              ).join(', ') : 'NO DATA'}</td>
+              <td class="modal__text-params modal__text-low">${
+                getGeneres(filteredFilm[0].genre_ids, genresArr).join(', ')
+                  ? getGeneres(filteredFilm[0].genre_ids, genresArr).join(', ')
+                  : 'NO DATA'
+              }</td>
             </tr>
           </tbody>
         </table>
@@ -193,12 +195,17 @@ function onCloseModal() {
   const dataInfo = document.querySelector(
     '.filters-row__btn--active.is-active'
   );
+  console.log(dataInfo.dataset.info);
   const films = JSON.parse(localStorage.getItem(dataInfo.dataset.info));
   renderDefalt();
   if (!films || films.length === 0) {
     return;
   }
+  let perPage = 20;
+  let totalPages = Math.ceil(films.length / perPage);
   createMarkUpListFilm(1, films);
+  renderBtnPag(1, totalPages);
+  handlerPagination(totalPages, dataInfo.dataset.info);
 }
 
 function removeListener() {

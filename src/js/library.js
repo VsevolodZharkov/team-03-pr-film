@@ -60,4 +60,4 @@ function renderCards(films) {
 handlerModalFooter();
 buttonUp();
 
-export { renderDefalt };
+export { renderDefalt, renderCards, refs };

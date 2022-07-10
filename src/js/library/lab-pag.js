@@ -8,7 +8,9 @@ const refsPag = {
 let currentPage;
 
 function renderBtnPag(page, totalPages) {
+  refsPag.pagContainer.innerHTML = '';
   if (!page || !totalPages || totalPages === 1) {
+    console.log('here');
     return;
   }
   let markup = '';
@@ -58,10 +60,9 @@ function renderBtnPag(page, totalPages) {
 }
 
 /////////////////////////////////////////////////////////////////
-// const key = 
+
 function handlerPagination(totalPages, key) {
   refsPag.pagContainer.addEventListener('click', onClickPagBtn);
-
   function onClickPagBtn(event) {
     if (
       event.target.nodeName !== 'BUTTON' ||
@@ -77,10 +78,15 @@ function handlerPagination(totalPages, key) {
     } else {
       currentPage = Number(event.target.textContent);
     }
+
     const films = getMovieFromLocalStorage(key);
     renderBtnPag(currentPage, totalPages);
     createMarkUpListFilm(currentPage, films);
   }
 }
+
+// function removeListenerFromBtnPag() {
+//   refsPag.pagContainer.removeEventListener('click', onClickPagBtn);
+// }
 
 export { renderBtnPag, handlerPagination };

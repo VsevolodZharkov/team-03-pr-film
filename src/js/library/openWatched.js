@@ -3,6 +3,7 @@ import { createMarkUpListFilm } from './createlistcards';
 import { renderBtnPag, handlerPagination } from './lab-pag';
 import { showLabModal } from './lab-modal';
 import { renderDefalt } from '../library';
+//------------------------------------------------------//
 
 const watched = document.querySelector('.js-watched');
 const queue = document.querySelector('.js-queue');
@@ -12,6 +13,7 @@ function openWatched() {
   queue.classList.remove('is-active');
   renderDefalt();
   const films = getMovieFromLocalStorage('watched');
+
   if (!films || films.length === 0) {
     return;
   }

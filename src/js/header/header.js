@@ -17,7 +17,7 @@ function seachByQuery() {
 
 function onSubmit(evt) {
   evt.preventDefault();
-  pagContainer.removeEventListener('click', onClickPagBtn);
+
   query = evt.target.elements.text.value.trim();
 
   if (query === '') {
@@ -29,6 +29,7 @@ function onSubmit(evt) {
 
     return;
   }
+
   currentPage = 1;
   localStorage.setItem('currentPage', currentPage);
   searchMovies(query, currentPage)
@@ -43,7 +44,7 @@ function onSubmit(evt) {
       }
       createMarkUp(searchData.results);
       renderButtonsPag(1, searchData.total_pages);
-
+      pagContainer.removeEventListener('click', onClickPagBtn);
       pagContainer.addEventListener('click', handlerOnPag);
       showModal(searchData);
     })
