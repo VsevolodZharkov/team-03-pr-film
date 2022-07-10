@@ -78,7 +78,6 @@ function getGeneres(arr, genres) {
   return arr.map(item => {
     return genres.genres
       .filter(elem => {
-        // console.log(elem.id === item);
         return elem.id === item;
       })
       .flatMap(one => one.name);

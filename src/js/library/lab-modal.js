@@ -54,8 +54,6 @@ function createModalMarkup(arr, id) {
     original_title,
   } = filteredFilm[0];
 
-  console.log(isInLocalstorage(KEY_QUEUE, id), ' в очереди');
-  console.log(isInLocalstorage(KEY_WATCHED, id), 'в просмотренных');
   markUp = `
       <img
         class="modal__form-img"
@@ -131,20 +129,16 @@ ${isInLocalstorage(KEY_QUEUE, id) ? 'remove from QUEUE' : 'add to QUEUE'}
 }
 
 function actionWatch(e) {
-  console.log(e.target);
   if (e.target.dataset.action === 'add') {
-    console.log('add');
     const selectFilm = film.find(item => {
       return item.id === Number(idFilm);
     });
 
-    console.log(selectFilm);
     setItemToLocalStorage(KEY_WATCHED, selectFilm);
 
     e.target.textContent = 'Remove from watched';
     e.target.dataset.action = 'remove';
   } else {
-    console.log('delete');
     const films = getMovieFromLocalStorage(KEY_WATCHED);
     const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);
@@ -154,9 +148,7 @@ function actionWatch(e) {
   }
 }
 function actionQueue(e) {
-  console.log(e.target);
   if (e.target.dataset.action === 'add') {
-    console.log('add');
     const selectFilm = film.find(item => {
       return item.id === Number(idFilm);
     });
@@ -165,7 +157,6 @@ function actionQueue(e) {
     e.target.textContent = 'Remove from queue';
     e.target.dataset.action = 'remove';
   } else {
-    console.log('delete');
     const films = getMovieFromLocalStorage(KEY_QUEUE);
     const index = films.findIndex(item => item.id === Number(idFilm));
     films.splice(index, 1);

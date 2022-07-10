@@ -5,7 +5,6 @@
 		modal: document.querySelector("[data-modal-footer]"),
 		body: document.querySelector("body")
 	};
-	console.log(refs.body);
 	refs.openModalBtn.addEventListener("click", openModal);
 	refs.closeModalBtn.addEventListener("click", closeModal);
 

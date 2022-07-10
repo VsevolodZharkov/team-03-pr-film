@@ -21,14 +21,11 @@ let theme = localStorage.getItem('theme');
 
 function currentTheme() {
   if (theme === 'light' || !theme ) {
-		console.log('true');
     changeThemeLight();
   } else {
     changeThemeDark();
-		console.log('false');
   }
 }
-console.log(svgLight, svgDark);
 svgLight.addEventListener('click', changeThemeLight);
 svgDark.addEventListener('click', changeThemeDark);
 
