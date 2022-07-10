@@ -5,9 +5,11 @@
 		modal: document.querySelector("[data-modal-footer]"),
 		body: document.querySelector("body")
 	};
-	refs.openModalBtn.addEventListener("click", openModal);
-	refs.closeModalBtn.addEventListener("click", closeModal);
-
+	function handlerModalFooter() {
+		console.log(refs.openModalBtn, refs.closeModalBtn);
+		refs.openModalBtn.addEventListener("click", openModal);
+		refs.closeModalBtn.addEventListener("click", closeModal);
+	}
 	function openModal(e) {
 		e.preventDefault();
 		refs.modal.classList.add("is-hidden");
@@ -40,3 +42,4 @@
 		document.removeEventListener('keydown', onEscClick);
 		document.removeEventListener('click', onClickBackdrop);
 	}
+	export { handlerModalFooter };

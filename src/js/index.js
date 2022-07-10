@@ -5,6 +5,7 @@ import { showModal } from './modal/modal';
 import { theme, currentTheme } from './switcher/switcher';
 import { seachByQuery } from './header/header';
 import { buttonUp } from './button-up/buttton-up';
+import { handlerModalFooter } from './modal-footer/modal-footer'
 //----------------------------------------------------------------//
 // get and setup theme color
 // go next
@@ -25,8 +26,14 @@ getGenresPopfilms()
   .catch(er => console.log(er))
   .finally(() => {});
 
+
+// footer modal
+handlerModalFooter();
 // search films by query
 seachByQuery();
 
 //home btn
 buttonUp();
+
+
+
