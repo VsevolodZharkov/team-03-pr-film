@@ -58,4 +58,4 @@ function switchTheme(nameTheme) {
   localStorage.setItem('theme', nameTheme);
 }
 
-export { currentTheme };
+export { theme, currentTheme };

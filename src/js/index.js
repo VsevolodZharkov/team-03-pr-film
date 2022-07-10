@@ -2,7 +2,7 @@ import { createMarkUp } from './markup/createmarkup';
 import { getGenresPopfilms } from './apisreq/genresandtrends';
 import { renderButtonsPag } from './paginaton/pagination';
 import { showModal } from './modal/modal';
-import { currentTheme } from './switcher/switcher';
+import { theme, currentTheme } from './switcher/switcher';
 import { seachByQuery } from './header/header';
 import { buttonUp } from './button-up/buttton-up';
 //----------------------------------------------------------------//
