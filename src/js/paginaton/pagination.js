@@ -1,8 +1,6 @@
 import { createMarkUp } from '../markup/createmarkup';
 import { getTrendMovies } from '../apisreq/gettrends';
 import { showModal } from '../modal/modal';
-// import { spiner } from './spiner';
-// import { gallery } from '../index';
 //-------------------------------------------------------------------//
 
 const refsPag = {
@@ -12,6 +10,7 @@ const refsPag = {
 let currentPage = localStorage.getItem('currentPage');
 
 function renderButtonsPag(page, totalPages, callback) {
+  refsPag.pagContainer.innerHTML = '';
   if (!page || !totalPages || totalPages === 1) {
     return;
   }
