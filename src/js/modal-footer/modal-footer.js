@@ -10,16 +10,15 @@
 		refs.openModalBtn.addEventListener("click", openModal);
 		refs.closeModalBtn.addEventListener("click", closeModal);
 	}
-	function openModal(e) {
-		e.preventDefault();
+	function openModal() {
 		refs.modal.classList.add("is-hidden");
-		refs.body.classList.add("ishidden")
+		refs.body.classList.add("ishidden");
 		document.addEventListener('click', onClickBackdrop);
 		document.addEventListener('keydown', onEscClick);
 	}
 
-	function closeModal (e) {
-		e.preventDefault();
+	function closeModal () {
+
 		refs.modal.classList.remove("is-hidden");
 		refs.body.classList.remove("ishidden")
 		removeListener();
