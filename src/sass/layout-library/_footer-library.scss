@@ -58,7 +58,7 @@
 }
 
 // Modal
-.backdrop {
+.backdrop-footer {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -76,7 +76,7 @@
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.is-hidden.backdrop {
+.is-openened {
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
@@ -100,7 +100,7 @@
   border: 1px solid rgba(0, 0, 0, 0);
   z-index: 30;
 
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .modal__btn-icon {
@@ -123,26 +123,33 @@
   width: 280px;
   height: auto;
   z-index: 20;
-  background-color: #fff;
-  padding: 25px 5px 5px;
+
+  padding: 25px 15px 25px 15px;
   position: absolute;
-  top: 50%;
+  top: 145%;
   left: 50%;
   transform: translate(-50%, -50%);
+  backdrop-filter: blur(11.7px);
+  -webkit-backdrop-filter: blur(11.7px);
+  background-color: #fff3;
+  border: 1px solid #ffffff4d;
+  border-radius: 16px;
+
   @include mq(tablet) {
-    width: 550px;
-    height: 650px;
+    top: 50%;
+    width: 650px;
+    height: 690px;
   }
   @include mq(desktop) {
-    width: 550px;
-    height: 650px;
-    padding: 44px 20px 20px 20px;
+    width: 700px;
+    height: 700px;
+    padding: 44px 20px 44px 20px;
   }
 }
 .modal__list {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+
   @include mq(tablet) {
     flex-direction: row;
     justify-content: space-around;
@@ -174,7 +181,9 @@
   }
 }
 .modal__social-item {
-  display: inline;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 .modal__social-item:not(:last-child) {
   margin-right: 5px;
@@ -189,8 +198,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
-  height: auto;
-  width: 120px;
+
   @include mq(tablet) {
     display: flex;
     flex-wrap: wrap;
@@ -207,28 +215,30 @@
 
 .modal__img {
   display: inline;
-  width: 140px;
-  height: 165px;
+  max-width: 100%;
+
   margin-bottom: 8px;
   background-size: contain;
+  border-radius: 16px;
   @include mq(tablet) {
-    // width: 130px;
-    height: 190px;
+    height: 200px;
   }
 }
-.fix {
-  height: 170px;
-  @include mq(tablet) {
-    height: 190px;
-  }
-}
+// .fix {
+//   height: 170px;
+//   @include mq(tablet) {
+//     height: 190px;
+//   }
+// }
 
 .footer__title-modal {
-  display: flex;
-  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 500;
+  color: var(--text);
+
   @include mq(tablet) {
     font-size: 20px;
   }
@@ -236,6 +246,7 @@
 .modal__text-name {
   font-size: 10px;
   line-height: 1.1;
+  color: var(--text);
   @include mq(tablet) {
     font-size: 14px;
     line-height: 1.2;
@@ -245,6 +256,7 @@
 .modal__text-post {
   font-size: 8px;
   line-height: 1.1;
+  color: var(--text);
   @include mq(tablet) {
     font-size: 11px;
     line-height: 1.2;
@@ -257,14 +269,16 @@
   height: 27px;
   fill: var(--text);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   @include mq(tablet) {
     width: 30px;
     height: 30px;
   }
 }
-.modal__social-icon :hover,
-.modal__social-icon :focus {
-  background-color: #ffffff;
+
+.modal__social-link:hover .modal__social-icon,
+.modal__social-link:focus .modal__social-icon {
+  // background-color: var(--bg);
   fill: var(--accent);
 }
 

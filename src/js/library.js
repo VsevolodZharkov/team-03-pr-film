@@ -6,6 +6,7 @@ import { openWatched } from './library/openWatched';
 import { openQueue } from './library/openQueue';
 import { buttonUp } from './button-up/buttton-up';
 import { theme, currentTheme } from './switcher/switcher';
+import { handlerModalFooter } from './modal-footer/modal-footer';
 // //----------------------------------------------------------------//
 const refs = {
   btnWatched: document.querySelector('.js-watched'),
@@ -54,5 +55,9 @@ function renderCards(films) {
   handlerPagination(totalPages, KEY_QUEUE);
   showLabModal(KEY_QUEUE);
 }
+
+// footer modal
+handlerModalFooter();
 buttonUp();
+
 export { renderDefalt };
