@@ -7,6 +7,7 @@ import { seachByQuery } from './header/header';
 import { buttonUp } from './button-up/buttton-up';
 //----------------------------------------------------------------//
 // get and setup theme color
+// go next
 currentTheme();
 
 let currentPage = 1;
