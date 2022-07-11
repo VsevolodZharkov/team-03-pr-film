@@ -2,7 +2,7 @@ import { getMovieFromLocalStorage } from './getfromlocalstorage';
 import { createMarkUpListFilm } from './createlistcards';
 import { renderBtnPag, handlerPagination } from './lab-pag';
 import { showLabModal } from './lab-modal';
-import { renderDefalt } from '../library';
+import { renderDefalt } from './renderDefault';
 
 ///--------------------------------------------------------------//
 const watched = document.querySelector('.js-watched');
