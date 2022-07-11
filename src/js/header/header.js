@@ -2,6 +2,7 @@ import { searchMovies } from '../apisreq/getserchquery.js';
 import { createMarkUp } from '../markup/createmarkup';
 import { renderButtonsPag, onClickPagBtn } from '../paginaton/pagination';
 import { showModal } from '../modal/modal';
+import { renderDefalt } from '../library/renderDefault.js';
 
 //-------------------------------------------------------//
 const pagContainer = document.querySelector('.js-pagination');
@@ -18,9 +19,14 @@ function seachByQuery() {
 function onSubmit(evt) {
   evt.preventDefault();
 
+
   query = evt.target.elements.text.value.trim();
 
-  if (query === '') {
+  pagContainer.removeEventListener('click', onClickPagBtn);
+  const validationQuery = evt.target.elements.text.value.trim();
+
+
+  if (validationQuery === '') {
     popup.textContent =
       'Search result not successful. Enter the correct movie name and try again';
     setTimeout(() => {
@@ -28,6 +34,8 @@ function onSubmit(evt) {
     }, 2000);
 
     return;
+  } else {
+    query = validationQuery;
   }
 
   currentPage = 1;
@@ -35,11 +43,13 @@ function onSubmit(evt) {
   searchMovies(query, currentPage)
     .then(searchData => {
       if (searchData.total_pages === 0) {
+        renderDefalt();
         popup.textContent =
           'Search result not successful. Enter the correct movie name and try again';
         setTimeout(() => {
           popup.textContent = '';
         }, 2000);
+        renderButtonsPag(1, searchData.total_pages);
         return;
       }
       createMarkUp(searchData.results);
@@ -50,7 +60,7 @@ function onSubmit(evt) {
     })
     .catch(e => console.log(e))
     .finally(() => {});
-  // evt.target.reset();
+  evt.target.reset();
 }
 
 function handlerOnPag(event) {

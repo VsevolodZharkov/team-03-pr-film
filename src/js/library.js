@@ -7,6 +7,7 @@ import { openQueue } from './library/openQueue';
 import { buttonUp } from './button-up/buttton-up';
 import { theme, currentTheme } from './switcher/switcher';
 import { handlerModalFooter } from './modal-footer/modal-footer';
+import { renderDefalt } from './library/renderDefault';
 // //----------------------------------------------------------------//
 const refs = {
   btnWatched: document.querySelector('.js-watched'),
@@ -33,15 +34,6 @@ if (!films || films.length === 0) {
 }
 
 // если пусто в локал сторедж
-function renderDefalt() {
-  refs.gallery.innerHTML = `<li class="default">
-        <p class="message">Sorry, there is nothing here yet.</p>
-        <img
-          src="https://img.freepik.com/free-photo/awkward-girl-shrugging-shoulders-with-apologizing-face-expression-looking-clueless-say-sorry-showing-empty-hands-has-nothing-standing-over-white-background_176420-48867.jpg"
-          alt="Empty"
-        />
-      </li>`;
-}
 
 // если есть данные в локал сторедж по ключу "queue"
 function renderCards(films) {
@@ -61,3 +53,4 @@ handlerModalFooter();
 buttonUp();
 
 export { renderDefalt, renderCards, refs };
+
