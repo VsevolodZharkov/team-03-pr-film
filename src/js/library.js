@@ -51,3 +51,6 @@ function renderCards(films) {
 // footer modal
 handlerModalFooter();
 buttonUp();
+
+export { renderDefalt, renderCards, refs };
+

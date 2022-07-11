@@ -41,6 +41,8 @@
   line-height: 1.1;
   color: #545454;
   text-decoration: underline;
+  cursor: pointer;
+
   @include mq(tablet) {
     font-size: 16px;
     line-height: 1.17;

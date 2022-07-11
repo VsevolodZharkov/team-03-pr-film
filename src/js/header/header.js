@@ -18,8 +18,13 @@ function seachByQuery() {
 
 function onSubmit(evt) {
   evt.preventDefault();
+
+
+  query = evt.target.elements.text.value.trim();
+
   pagContainer.removeEventListener('click', onClickPagBtn);
   const validationQuery = evt.target.elements.text.value.trim();
+
 
   if (validationQuery === '') {
     popup.textContent =
@@ -32,6 +37,7 @@ function onSubmit(evt) {
   } else {
     query = validationQuery;
   }
+
   currentPage = 1;
   localStorage.setItem('currentPage', currentPage);
   searchMovies(query, currentPage)
@@ -48,7 +54,7 @@ function onSubmit(evt) {
       }
       createMarkUp(searchData.results);
       renderButtonsPag(1, searchData.total_pages);
-
+      pagContainer.removeEventListener('click', onClickPagBtn);
       pagContainer.addEventListener('click', handlerOnPag);
       showModal(searchData);
     })
