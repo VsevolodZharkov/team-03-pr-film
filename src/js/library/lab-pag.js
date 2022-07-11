@@ -10,7 +10,6 @@ let currentPage;
 function renderBtnPag(page, totalPages) {
   refsPag.pagContainer.innerHTML = '';
   if (!page || !totalPages || totalPages === 1) {
-    console.log('here');
     return;
   }
   let markup = '';

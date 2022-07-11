@@ -195,7 +195,6 @@ function onCloseModal() {
   const dataInfo = document.querySelector(
     '.filters-row__btn--active.is-active'
   );
-  console.log(dataInfo.dataset.info);
   const films = JSON.parse(localStorage.getItem(dataInfo.dataset.info));
   renderDefalt();
   if (!films || films.length === 0) {
