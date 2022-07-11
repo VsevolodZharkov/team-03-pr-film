@@ -104,20 +104,15 @@
 .modal__form-img {
   margin-bottom: 20px;
   width: 240px;
-  height: 357px;
   border-radius: 5px;
-
   @include mq(tablet) {
     margin-right: 68px;
     margin-bottom: 0;
     width: 264px;
-    height: 374px;
   }
-
   @include mq(desktop) {
     margin-right: 16px;
     width: 375px;
-    height: 478px;
   }
 }
 
